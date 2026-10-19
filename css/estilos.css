@@ -1,292 +1,1947 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+/* ==========================================================================
+   Vida Plena — Terapia Ocupacional
+   Atlas de Movimiento: láminas de medición, figuras articuladas y arcos.
+   ========================================================================== */
 
-  body {
-    font-family: 'Raleway', sans-serif;
-    background-color: #f8fdfc;
-    color: #333;
-    line-height: 1.6;
-  }
+:root {
+  /* Superficie: placa de laboratorio bajo luz fría de día */
+  --plate: #eeeef0;
+  --plate-sunk: #e5e6ea;
+  --plate-raised: #f7f7f8;
 
-  header {
-    background-color: #a0c4ff;
-    color: white;
-    padding: 1.5rem 2rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    position: relative;
-    display: grid;
-    grid-template-columns: 100px 1fr;
-    align-items: center;
-    gap: 1rem;
-  }
-  
-  .logo {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid white;
-    grid-column: 1;
-    grid-row: 1 / span 2;
-    align-self: center;
-  }
-  
-  header h1 {
-    font-size: 2.5rem;
-    text-align: center;
-    margin: 0 auto;
-    grid-column: 2;
-  }
-  
-  nav {
-    width: 100%;
-    text-align: center;
-    margin-top: 0.5rem;
-    grid-column: 1 / span 2;
-  }
-  
-  nav a {
-    color: white;
-    margin: 0 1rem;
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
-    transition: opacity 0.3s ease;
-  }
-  
-  nav a:hover {
-    opacity: 0.8;
-  }
+  /* Tinta y reglas */
+  --ink: #14161b;
+  --ink-2: #4c515b;
+  --ink-3: #5f646e;
+  --rule: rgba(20, 22, 27, 0.16);
+  --rule-strong: rgba(20, 22, 27, 0.34);
+  --rule-faint: rgba(20, 22, 27, 0.07);
 
-  .section {
-    padding: 3rem 2rem;
-    max-width: 1000px;
-    margin: auto;
-  }
+  /* Acentos */
+  --cobalt: #2440db;
+  --cobalt-deep: #1a2fa8;
+  --cobalt-wash: rgba(36, 64, 219, 0.09);
+  --verm: #e8451f;
+  --verm-wash: rgba(232, 69, 31, 0.1);
+  --wood: #d9b78c;
+  --wood-lit: #eccf9f;
+  --wood-shade: #a97c4e;
 
-  .section h2 {
-    text-align: center;
-    color: #5390d9;
-    margin-bottom: 2rem;
-    font-size: 2rem;
-  }
+  --ok: #1f7a4d;
 
-  .services {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-  }
+  /* Medidas */
+  --gutter: clamp(1.25rem, 5vw, 5.5rem);
+  --plate-w: 1180px;
+  --radius: 3px;
 
-  .card {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
-    transition: transform 0.3s;
-  }
+  /* Tipografía: ninguno de los tamaños funcionales baja de 11.2px */
+  --grotesk: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --mono: "Martian Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+  --micro: 0.76rem;
+  --micro-wide: 0.8rem;
 
-  .card:hover {
-    transform: translateY(-5px);
-  }
-
-  .card h3 {
-    margin-bottom: 1rem;
-    color: #5390d9;
-  }
-
-  .testimonial-container, .gallery-scroll {
-    display: flex;
-    overflow-x: auto;
-    gap: 1.5rem;
-    scroll-snap-type: x mandatory;
-    padding: 1rem 0;
-  }
-
-  .testimonial-container::-webkit-scrollbar,
-  .gallery-scroll::-webkit-scrollbar {
-    height: 8px;
-  }
-
-  .testimonial-container::-webkit-scrollbar-thumb,
-  .gallery-scroll::-webkit-scrollbar-thumb {
-    background: #a0c4ff;
-    border-radius: 5px;
-  }
-
-  .testimonial {
-    flex: 0 0 300px;
-    scroll-snap-align: start;
-    font-style: italic;
-    background-color: #edf4ff;
-    padding: 1.5rem;
-    border-left: 5px solid #5390d9;
-    border-radius: 0.5rem;
-  }
-
-  form textarea, form input {
-    width: 100%;
-    padding: 0.8rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 0.5rem;
-  }
-
-  form button {
-    background-color: #5390d9;
-    color: white;
-    padding: 0.8rem 1.2rem;
-    border: none;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s;
-  }
-
-  form button:hover {
-    background-color: #3c75bb;
-  }
-
-  .gallery-scroll img {
-    height: 200px;
-    width: auto;
-    border-radius: 1rem;
-    flex: 0 0 auto;
-    scroll-snap-align: start;
-  }
-
-  footer {
-    background-color: #5390d9;
-    color: white;
-    text-align: center;
-    padding: 1.5rem 2rem;
-    margin-top: 3rem;
-  }
-
-  .fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 1s ease-out, transform 1s ease-out;
-  }
-
-  .fade-in.show {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  @media (max-width: 768px) {
-    header {
-      grid-template-columns: 1fr;
-      text-align: center;
-      padding: 1rem;
-    }
-  
-    .logo {
-      position: static;
-      margin: 0 auto 1rem;
-      grid-column: 1;
-      grid-row: auto;
-    }
-  
-    header h1 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-      grid-column: 1;
-    }
-  
-    nav {
-      grid-column: 1;
-    }
-  
-    nav a {
-      display: block;
-      margin: 0.3rem 0;
-    }
-  }
-  
-  .whatsapp {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    z-index: 999;
-    transition: transform 0.3s ease;
-  }
-  
-  .whatsapp img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border-radius: 50%;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  }
-  
-  .whatsapp:hover {
-    transform: scale(1.1);
-  }
-
-  .seccion {
-padding: 60px 20px;
-background-color: #f7faff;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
-.quien-soy {
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 40px;
-flex-wrap: wrap;
-max-width: 1000px;
-margin: 0 auto;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-.foto-perfil img {
-width: 200px;
-height: 200px;
-object-fit: cover;
-/*border-radius: 50%;*/
-border: 4px solid #b3e5fc; /* Celeste */
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
-.descripcion-quien-soy h2 {
-font-size: 2rem;
-margin-bottom: 10px;
-color: #5390d9;
+body {
+  margin: 0;
+  background-color: var(--plate);
+  color: var(--ink);
+  font-family: var(--grotesk);
+  font-size: clamp(1rem, 0.62vw + 0.9rem, 1.11rem);
+  line-height: 1.62;
+  font-synthesis-weight: none;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
 }
 
-.descripcion-quien-soy p {
-font-size: 1.1rem;
-line-height: 1.6;
-max-width: 500px;
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  line-height: 1.06;
+  letter-spacing: -0.022em;
+  font-weight: 700;
+  text-wrap: balance;
 }
 
-.error-mensaje {
-  color: #d32f2f;
-  background-color: #ffebee;
-  border-left: 4px solid #d32f2f;
-  padding: 8px 12px;
-  margin-top: 6px;
-  font-size: 0.95em;
-  border-radius: 4px;
-  font-family: 'Raleway', sans-serif;
-  opacity: 1;
-  transition: opacity 0.5s ease;
+p {
+  margin: 0;
 }
-.error-mensaje.ocultar {
-  opacity: 0;
+
+img {
+  display: block;
+  max-width: 100%;
 }
-.error {
-  color: red;
-  margin: 5px 0;
+
+a {
+  color: var(--cobalt);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+}
+
+/* Superficies del navegador, temadas desde la paleta */
+::selection {
+  background: var(--cobalt);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--cobalt);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+html {
+  scrollbar-color: var(--rule-strong) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--plate-sunk);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--rule-strong);
+  border: 3px solid var(--plate-sunk);
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--ink-3);
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+  color: inherit;
+  caret-color: var(--cobalt);
+}
+
+.mono {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+  letter-spacing: 0.02em;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--gutter);
+  top: 0.75rem;
+  z-index: 60;
+  transform: translateY(-200%);
+  background: var(--ink);
+  color: #fff;
+  padding: 0.7rem 1.1rem;
+  border-radius: var(--radius);
+  font-family: var(--mono);
+  font-size: var(--micro);
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   Cabecera: índice de láminas
+   -------------------------------------------------------------------------- */
+
+.site-head {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: var(--plate);
+  border-bottom: 1px solid var(--rule);
+}
+
+.site-head__inner {
+  max-width: var(--plate-w);
+  margin-inline: auto;
+  padding: 0.7rem var(--gutter);
+  display: flex;
+  align-items: center;
+  gap: clamp(0.9rem, 2.4vw, 2.2rem);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+  color: var(--ink);
+  flex: 0 0 auto;
+}
+
+.brand__logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--rule-strong);
+  background: var(--plate-raised);
+}
+
+.brand__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.14;
+}
+
+.brand__name {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-size: 1.06rem;
+}
+
+.brand__kind {
+  font-size: var(--micro);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-3);
+}
+
+.plate-index {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin-inline: auto 0;
+  padding-block: 0.15rem;
+}
+
+.plate-index::-webkit-scrollbar {
+  display: none;
+}
+
+.plate-index a {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  padding: 0.45rem 0.6rem;
+  color: var(--ink-2);
+  text-decoration: none;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color 0.18s, border-color 0.18s;
+}
+
+.plate-index a:hover,
+.plate-index a:focus-visible {
+  color: var(--ink);
+  border-color: var(--cobalt);
+}
+
+.plate-index__no {
+  font-family: var(--mono);
+  font-size: var(--micro);
+  color: var(--ink-3);
+}
+
+.plate-index a:hover .plate-index__no {
+  color: var(--cobalt);
+}
+
+.plate-index__label {
+  font-size: 0.9rem;
   font-weight: 500;
 }
 
-.success { 
-  color: green; 
-  margin: 10px 0; 
-  font-weight: bold;
+/* Botón primario, como sello de lámina */
+.stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.75rem 1.1rem;
+  background: var(--cobalt);
+  color: #fff;
+  border: 1px solid var(--cobalt);
+  border-radius: var(--radius);
+  font-family: var(--mono);
+  font-size: var(--micro);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s var(--ease-out), box-shadow 0.2s;
+}
+
+.stamp:hover {
+  background: var(--cobalt-deep);
+  border-color: var(--cobalt-deep);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px -10px rgba(26, 47, 168, 0.75);
+}
+
+.stamp:active {
+  transform: translateY(0);
+}
+
+.stamp--ghost {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--rule-strong);
+}
+
+.stamp--ghost:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+  box-shadow: none;
+}
+
+.stamp__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.site-head__cta {
+  flex: 0 0 auto;
+}
+
+/* --------------------------------------------------------------------------
+   Láminas
+   -------------------------------------------------------------------------- */
+
+.plate {
+  position: relative;
+  max-width: var(--plate-w);
+  margin-inline: auto;
+  padding: clamp(3.4rem, 8vw, 7rem) var(--gutter);
+}
+
+.plate + .plate {
+  border-top: 1px solid var(--rule);
+}
+
+.plate__caption {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid var(--rule-strong);
+  margin-bottom: clamp(1.6rem, 4vw, 3rem);
+}
+
+.plate__caption h2 {
+  font-size: clamp(1.7rem, 3.4vw, 2.6rem);
+}
+
+.plate__code {
+  font-family: var(--mono);
+  font-size: var(--micro);
+  letter-spacing: 0.04em;
+  color: var(--ink-3);
+  text-align: right;
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+.plate__code b {
+  display: block;
+  color: var(--ink);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.plate__lead {
+  max-width: 66ch;
+  color: var(--ink-2);
+  font-size: 1.06rem;
+}
+
+/* --------------------------------------------------------------------------
+   Lámina 01 — portada
+   -------------------------------------------------------------------------- */
+
+.atlas-cover {
+  position: relative;
+  padding-block: clamp(2rem, 5vw, 4.2rem) clamp(2rem, 6vw, 4.6rem);
+}
+
+.atlas-cover__frame {
+  position: relative;
+  max-width: var(--plate-w);
+  margin-inline: auto;
+  padding: clamp(1.5rem, 3.5vw, 3rem) var(--gutter) clamp(2.2rem, 5vw, 3.4rem);
+}
+
+/* Retícula de medición: herramienta, no decoración */
+.measure-plate {
+  position: absolute;
+  inset: 0 clamp(0.4rem, 2vw, 2.4rem);
+  border-inline: 1px solid var(--rule-faint);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.measure-plate svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.measure-plate__ruler {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 18px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.cover-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.44fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+}
+
+.cover h1 {
+  font-size: clamp(2.5rem, 5.6vw, 5rem);
+  font-weight: 700;
+  max-width: 15ch;
+  margin-bottom: 1.4rem;
+}
+
+.cover h1 em {
+  font-style: normal;
+  color: var(--cobalt);
+}
+
+.cover__lede {
+  max-width: 66ch;
+  color: var(--ink-2);
+  font-size: clamp(1.02rem, 1.4vw, 1.16rem);
+}
+
+.cover__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8rem 1.4rem;
+  margin-top: 2rem;
+}
+
+.cover__note {
+  font-family: var(--mono);
+  font-size: var(--micro);
+  color: var(--ink-3);
+  letter-spacing: 0.02em;
+}
+
+.cover__legend {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: clamp(2rem, 5vw, 3.2rem);
+  border: 1px solid var(--rule);
+  background: var(--rule);
+}
+
+.cover__legend div {
+  background: var(--plate);
+  padding: 1rem 1.1rem;
+}
+
+.cover__legend dt {
+  font-family: var(--mono);
+  font-size: var(--micro);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-3);
+  margin-bottom: 0.4rem;
+}
+
+.cover__legend dd {
+  margin: 0;
+  font-weight: 600;
+  font-size: 1.02rem;
+  letter-spacing: -0.01em;
+}
+
+/* Escena de maniquí articulado en 3D */
+.fig-scene {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  max-width: 560px;
+  margin-inline: auto;
+  width: 100%;
+  perspective: 1200px;
+  font-size: clamp(2.9px, 1.05vw, 6.1px);
+  --rx: 0deg;
+  --ry: 0deg;
+  --nx: 0;
+  --ny: 0;
+}
+
+.fig-ghost {
+  position: absolute;
+  inset: auto 0 6% auto;
+  width: 62%;
+  font-family: var(--grotesk);
+  font-weight: 800;
+  font-size: 24em;
+  line-height: 0.72;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--rule);
+  text-align: right;
+  user-select: none;
+  z-index: 0;
+  transform: translate3d(calc(var(--nx) * -22px), calc(var(--ny) * -14px), 0);
+  transition: transform 0.5s var(--ease-out);
+}
+
+.fig-arc {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  transform: translate3d(calc(var(--nx) * 12px), calc(var(--ny) * 8px), -40px);
+  transform-style: preserve-3d;
+  transition: transform 0.5s var(--ease-out);
+}
+
+.fig-arc svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.fig-arc__range,
+.fig-arc__range-under {
+  fill: none;
+  stroke-linecap: round;
+  stroke-dasharray: 620;
+  stroke-dashoffset: 620;
+}
+
+/* Cuerpo extruido de la regla de rango: pared lateral en sombra */
+.fig-arc__range-under {
+  stroke: rgba(20, 22, 27, 0.24);
+  stroke-width: 3.4;
+  transform: translate(1.5px, 3.5px);
+}
+
+.fig-arc__range {
+  stroke: var(--cobalt);
+  stroke-width: 2;
+}
+
+.fig-arc.is-drawn .fig-arc__range,
+.fig-arc.is-drawn .fig-arc__range-under {
+  transition: stroke-dashoffset 1.5s var(--ease-out);
+  stroke-dashoffset: 0;
+}
+
+.fig-arc__fan {
+  fill: none;
+  stroke: var(--rule-strong);
+  stroke-width: 0.75;
+  stroke-dasharray: 3 5;
+}
+
+.fig-arc__tick {
+  stroke: var(--rule-strong);
+  stroke-width: 1;
+}
+
+.fig-figure {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  transform-style: preserve-3d;
+  transform: translate3d(calc(var(--nx) * -7px), calc(var(--ny) * -5px), 0) rotateX(var(--rx)) rotateY(var(--ry));
+  transition: transform 0.5s var(--ease-out);
+}
+
+/* Reflejo: la figura y su arco devueltos por la placa (raise de la dirección) */
+.fig-mirror {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  clip-path: inset(91% 0 0 0);
+}
+
+.fig-mirror__inner {
+  position: absolute;
+  inset: 0;
+  opacity: 0.3;
+  filter: blur(0.4px);
+  transform: scaleY(-1);
+  transform-origin: 50% 91%;
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 78%, rgba(0, 0, 0, 0.85) 91%);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 78%, rgba(0, 0, 0, 0.85) 91%);
+}
+
+.fig-shadow {
+  position: absolute;
+  left: 50%;
+  bottom: 9%;
+  width: 20em;
+  height: 3.4em;
+  transform: translateX(-50%) rotateX(74deg);
+  background: radial-gradient(50% 50% at 50% 50%, rgba(20, 22, 27, 0.42), rgba(20, 22, 27, 0) 72%);
+  filter: blur(0.6em);
+}
+
+.fig {
+  position: absolute;
+  left: 50%;
+  bottom: 9%;
+  width: 30em;
+  height: 48em;
+  margin-left: -15em;
+  transform-style: preserve-3d;
+}
+
+/* Piezas del maniquí de madera */
+.fig__part {
+  position: absolute;
+  background:
+    linear-gradient(
+      100deg,
+      var(--wood-shade) 0%,
+      var(--wood-shade) 12%,
+      var(--wood) 34%,
+      var(--wood-lit) 48%,
+      var(--wood) 62%,
+      var(--wood-shade) 88%,
+      var(--wood-shade) 100%
+    );
+  border-radius: 999px;
+  box-shadow: inset -0.35em -0.4em 0.9em rgba(90, 58, 28, 0.28);
+}
+
+.fig__joint {
+  position: absolute;
+  background:
+    radial-gradient(circle at 34% 30%, var(--wood-lit) 0%, var(--wood) 46%, var(--wood-shade) 100%);
+  border-radius: 50%;
+  box-shadow: 0 0.2em 0.5em rgba(90, 58, 28, 0.3);
+}
+
+.fig__head {
+  left: 11.4em;
+  top: 0;
+  width: 7.2em;
+  height: 8.8em;
+  border-radius: 50% 50% 46% 46%;
+}
+
+.fig__neck {
+  left: 13.5em;
+  top: 7.9em;
+  width: 3em;
+  height: 3.6em;
+}
+
+.fig__torso {
+  left: 9.3em;
+  top: 10.2em;
+  width: 11.4em;
+  height: 15.6em;
+  border-radius: 5.7em 5.7em 3.4em 3.4em;
+}
+
+.fig__pelvis {
+  left: 10.2em;
+  top: 24.6em;
+  width: 9.6em;
+  height: 5.4em;
+  border-radius: 2.6em 2.6em 3.2em 3.2em;
+}
+
+.fig__arm {
+  transform-origin: 50% 8%;
+}
+
+.fig__arm--lu {
+  left: 6.2em;
+  top: 11.4em;
+  width: 3.4em;
+  height: 12.2em;
+  transform: rotate(5deg);
+}
+
+.fig__arm--ru {
+  right: 6.2em;
+  top: 11.4em;
+  width: 3.4em;
+  height: 12.2em;
+  transform: rotate(-5deg);
+}
+
+.fig__arm--ll {
+  left: 5.4em;
+  top: 22.8em;
+  width: 3em;
+  height: 11.2em;
+  transform: rotate(-3deg);
+}
+
+.fig__arm--rl {
+  right: 5.4em;
+  top: 22.8em;
+  width: 3em;
+  height: 11.2em;
+  transform: rotate(3deg);
+}
+
+.fig__hand {
+  width: 3.2em;
+  height: 4.2em;
+  border-radius: 42% 42% 50% 50%;
+}
+
+.fig__hand--l {
+  left: 4.7em;
+  top: 33.4em;
+  transform: rotate(-2deg);
+}
+
+.fig__hand--r {
+  right: 4.7em;
+  top: 33.4em;
+  transform: rotate(2deg);
+}
+
+.fig__leg {
+  transform-origin: 50% 6%;
+}
+
+.fig__leg--lu {
+  left: 9.6em;
+  top: 28.8em;
+  width: 4.4em;
+  height: 9.6em;
+  transform: rotate(1deg);
+}
+
+.fig__leg--ru {
+  left: 16em;
+  top: 28.8em;
+  width: 4.4em;
+  height: 9.6em;
+  transform: rotate(-1deg);
+}
+
+.fig__leg--ll {
+  left: 9.9em;
+  top: 37.6em;
+  width: 3.8em;
+  height: 8.4em;
+  transform: rotate(-0.5deg);
+}
+
+.fig__leg--rl {
+  left: 16.3em;
+  top: 37.6em;
+  width: 3.8em;
+  height: 8.4em;
+  transform: rotate(0.5deg);
+}
+
+.fig__foot {
+  width: 4em;
+  height: 2.2em;
+  border-radius: 1.1em 1.4em 0.9em 0.9em;
+}
+
+.fig__foot--l {
+  left: 9.3em;
+  top: 45.4em;
+}
+
+.fig__foot--r {
+  left: 16.4em;
+  top: 45.4em;
+}
+
+.fig__joint--shoulder-l {
+  left: 5.8em;
+  top: 11.5em;
+  width: 4.2em;
+  height: 4.2em;
+}
+
+.fig__joint--shoulder-r {
+  right: 5.8em;
+  top: 11.5em;
+  width: 4.2em;
+  height: 4.2em;
+}
+
+.fig__joint--elbow-l {
+  left: 5.2em;
+  top: 21.2em;
+  width: 3.4em;
+  height: 3.4em;
+}
+
+.fig__joint--elbow-r {
+  right: 5.2em;
+  top: 21.2em;
+  width: 3.4em;
+  height: 3.4em;
+}
+
+.fig__joint--hip-l {
+  left: 9.8em;
+  top: 26.6em;
+  width: 4em;
+  height: 4em;
+}
+
+.fig__joint--hip-r {
+  left: 16.2em;
+  top: 26.6em;
+  width: 4em;
+  height: 4em;
+}
+
+.fig__joint--knee-l {
+  left: 10.1em;
+  top: 35.9em;
+  width: 3.4em;
+  height: 3.4em;
+}
+
+.fig__joint--knee-r {
+  left: 16.5em;
+  top: 35.9em;
+  width: 3.4em;
+  height: 3.4em;
+}
+
+/* Capa de anotaciones (impresas al frente) */
+.fig-notes {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  font-family: var(--mono);
+  font-size: var(--micro);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  transform: translate3d(calc(var(--nx) * 18px), calc(var(--ny) * 10px), 30px);
+  transition: transform 0.5s var(--ease-out);
+}
+
+.fig-note {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.fig-note::before {
+  content: "";
+  width: 1.6rem;
+  height: 1px;
+  background: var(--rule-strong);
+}
+
+.fig-note__tick {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border: 1px solid var(--ink-2);
+  border-radius: 50%;
+  background: var(--plate);
+}
+
+.fig-note--shoulder {
+  left: 4%;
+  top: 30%;
+}
+
+.fig-note--shoulder .fig-note__tick {
+  right: -1.4rem;
+}
+
+.fig-note--arc {
+  right: 2%;
+  top: 22%;
+  color: var(--cobalt);
+  flex-direction: row-reverse;
+}
+
+.fig-note--arc::before {
+  background: var(--cobalt);
+}
+
+.fig-note--arc .fig-note__tick {
+  left: -1.4rem;
+  border-color: var(--cobalt);
+}
+
+.fig-note--stance {
+  left: 6%;
+  bottom: 14%;
+}
+
+.fig-note--stance .fig-note__tick {
+  right: -1.4rem;
+}
+
+.fig-caption {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1rem 0 0;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: var(--micro);
+  letter-spacing: 0.04em;
+  color: var(--ink-3);
+}
+
+/* --------------------------------------------------------------------------
+   Lámina 02 — quién soy
+   -------------------------------------------------------------------------- */
+
+.portrait {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(1.6rem, 4vw, 3.6rem);
+  align-items: start;
+}
+
+.specimen {
+  position: relative;
+  background: var(--plate-raised);
+  border: 1px solid var(--rule-strong);
+  padding: 1.1rem;
+  margin: 0;
+}
+
+.specimen__crop {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--ink-3);
+}
+
+.specimen__crop--tl { top: -1px; left: -1px; border-right: 0; border-bottom: 0; }
+.specimen__crop--tr { top: -1px; right: -1px; border-left: 0; border-bottom: 0; }
+.specimen__crop--bl { bottom: -1px; left: -1px; border-right: 0; border-top: 0; }
+.specimen__crop--br { bottom: -1px; right: -1px; border-left: 0; border-top: 0; }
+
+.specimen img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center 42%;
+  filter: saturate(0.94) contrast(1.02);
+}
+
+.specimen__caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.8rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: var(--micro);
+  letter-spacing: 0.04em;
+  color: var(--ink-3);
+}
+
+.trait-list {
+  list-style: none;
+  margin: 1.8rem 0 0;
+  padding: 0;
+  border-top: 1px solid var(--rule);
+}
+
+.trait-list > div {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: 1rem;
+  align-items: baseline;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.trait-list dt {
+  font-family: var(--mono);
+  font-size: var(--micro);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.trait-list dd {
+  margin: 0;
+  font-weight: 500;
+}
+
+.portrait p + p {
+  margin-top: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   Lámina 03 — servicios
+   -------------------------------------------------------------------------- */
+
+.procedures {
+  display: grid;
+  gap: clamp(1.2rem, 3vw, 2.2rem);
+}
+
+.procedure {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+  gap: clamp(1.2rem, 3vw, 3rem);
+  align-items: center;
+  padding: clamp(1.4rem, 3vw, 2.4rem) 0;
+  border-top: 1px solid var(--rule);
+  transition: transform 0.42s var(--ease-out), box-shadow 0.42s var(--ease-out);
+  transform-style: preserve-3d;
+}
+
+.procedure:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.procedure__diagram {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 10;
+  background: var(--plate-raised);
+  border: 1px solid var(--rule);
+  overflow: hidden;
+}
+
+.procedure__diagram svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.procedure__lines {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.procedure__arc {
+  fill: none;
+  stroke: var(--cobalt);
+  stroke-width: 1.2;
+  stroke-dasharray: 5 4;
+  opacity: 0;
+  transition: opacity 0.5s var(--ease-out);
+}
+
+.procedure.is-visible .procedure__arc,
+.procedure:hover .procedure__arc {
+  opacity: 1;
+}
+
+.procedure__dot {
+  fill: var(--verm);
+}
+
+.procedure__grid-line {
+  stroke: var(--rule-faint);
+  stroke-width: 1;
+}
+
+.procedure__body {
+  max-width: 66ch;
+}
+
+.procedure__head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.9rem;
+  margin-bottom: 0.7rem;
+}
+
+.procedure__no {
+  font-family: var(--mono);
+  font-size: var(--micro);
+  color: var(--cobalt);
+  letter-spacing: 0.06em;
+}
+
+.procedure h3 {
+  font-size: clamp(1.25rem, 2vw, 1.62rem);
+}
+
+.procedure p {
+  color: var(--ink-2);
+}
+
+.procedure__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.55rem;
+  margin-top: 1.1rem;
+}
+
+.tag {
+  font-family: var(--mono);
+  font-size: var(--micro);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  border: 1px solid var(--rule-strong);
+  border-radius: 2px;
+  padding: 0.3rem 0.55rem;
+}
+
+.procedure:hover {
+  transform: perspective(900px) rotateY(-2.4deg) translateZ(10px);
+}
+
+.procedure:nth-child(even):hover {
+  transform: perspective(900px) rotateY(2.4deg) translateZ(10px);
+}
+
+/* --------------------------------------------------------------------------
+   Lámina 04 — recorrido
+   -------------------------------------------------------------------------- */
+
+.sequence {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.4rem, 4vw, 3rem);
+  padding-top: 2.4rem;
+}
+
+.sequence::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0.35rem;
+  height: 1px;
+  background: var(--rule-strong);
+}
+
+.step {
+  position: relative;
+  padding-top: 1.4rem;
+}
+
+.step::before {
+  content: "";
+  position: absolute;
+  top: -0.02rem;
+  left: 0;
+  width: 11px;
+  height: 11px;
+  margin-top: -5px;
+  border: 1px solid var(--ink);
+  background: var(--plate);
+  transform: rotate(45deg);
+}
+
+.step__no {
+  font-family: var(--mono);
+  font-size: var(--micro);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.step h3 {
+  font-size: 1.16rem;
+  margin-bottom: 0.55rem;
+}
+
+.step p {
+  color: var(--ink-2);
+  font-size: 0.98rem;
+}
+
+/* --------------------------------------------------------------------------
+   Lámina 05 — hoja de contactos
+   -------------------------------------------------------------------------- */
+
+.contact-sheet {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  gap: clamp(1.2rem, 3vw, 2.4rem);
+  align-items: stretch;
+}
+
+.sheet-frame {
+  position: relative;
+  border: 1px solid var(--rule-strong);
+  background: var(--plate-raised);
+  padding: 0.9rem;
+  margin: 0;
+}
+
+.sheet-frame__media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3 / 2;
+  background: var(--plate);
+}
+
+.sheet-frame__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(var(--zoom, 1));
+  transform-origin: var(--ox, 50%) var(--oy, 50%);
+}
+
+/* Carrusel del registro fotográfico ------------------------------------------ */
+
+.slider {
+  min-width: 0;
+}
+
+.slider__track {
+  display: flex;
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.slider__track::-webkit-scrollbar {
+  display: none;
+}
+
+.slider__track:focus-visible {
+  outline: 2px solid var(--cobalt);
+  outline-offset: 4px;
+}
+
+.slider__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.slider__controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.9rem;
+}
+
+.slider__btn {
+  appearance: none;
+  display: grid;
+  place-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  padding: 0;
+  background: var(--plate-raised);
+  border: 1px solid var(--rule-strong);
+  border-radius: 3px;
+  color: var(--ink);
+  cursor: pointer;
+  transition: background 0.2s var(--ease-out), border-color 0.2s var(--ease-out),
+    color 0.2s var(--ease-out);
+}
+
+.slider__btn svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.slider__btn:hover:not(:disabled) {
+  background: var(--cobalt);
+  border-color: var(--cobalt);
+  color: #ffffff;
+}
+
+.slider__btn:focus-visible {
+  outline: 2px solid var(--cobalt);
+  outline-offset: 2px;
+}
+
+.slider__btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.slider__dots {
+  display: flex;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.slider__dot {
+  position: relative;
+  appearance: none;
+  width: 2.25rem;
+  height: 1.5rem;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.slider__dot::before {
+  content: "";
+  position: absolute;
+  inset: 50% 0 auto;
+  height: 3px;
+  transform: translateY(-50%);
+  background: var(--rule-strong);
+  border-radius: 2px;
+  transition: background 0.2s var(--ease-out);
+}
+
+.slider__dot:hover::before {
+  background: var(--ink-3);
+}
+
+.slider__dot.is-active::before {
+  background: var(--cobalt);
+}
+
+.slider__dot:focus-visible {
+  outline: 2px solid var(--cobalt);
+  outline-offset: 2px;
+}
+
+.slider.is-single .slider__controls {
+  display: none;
+}
+
+.slider__counter {
+  font-family: var(--mono);
+  font-size: var(--micro);
+  letter-spacing: 0.08em;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+}
+
+.slider--records .slider__slide {
+  display: flex;
+}
+
+.slider--records .record {
+  flex: 1 1 auto;
+}
+
+.sheet-frame__meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.75rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: var(--micro);
+  letter-spacing: 0.04em;
+  color: var(--ink-3);
+}
+
+.sheet-aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.4rem;
+  padding: 1.4rem;
+  border: 1px solid var(--rule);
+  background: var(--plate-sunk);
+}
+
+.sheet-aside p {
+  color: var(--ink-2);
+}
+
+.sheet-aside__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: var(--mono);
+  font-size: var(--micro-wide);
+  letter-spacing: 0.02em;
+  color: var(--ink-3);
+}
+
+.sheet-aside__list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+.sheet-aside__list li span:last-child {
+  color: var(--ink-2);
+}
+
+/* --------------------------------------------------------------------------
+   Lámina 06 — testimonios
+   -------------------------------------------------------------------------- */
+
+.records {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: clamp(1.8rem, 4vw, 3.6rem);
+  align-items: start;
+}
+
+.record-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--rule);
+}
+
+.record {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding: clamp(1.3rem, 2.6vw, 2rem);
+  border: 1px solid var(--rule-strong);
+  background: var(--plate-raised);
+}
+
+.record__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.record__who {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.record__date {
+  font-family: var(--mono);
+  font-size: var(--micro);
+  letter-spacing: 0.06em;
+  color: var(--ink-3);
+  white-space: nowrap;
+}
+
+.record__quote {
+  margin: 0;
+  font-size: clamp(1.08rem, 1.5vw, 1.3rem);
+  line-height: 1.5;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+
+.record__rule {
+  display: block;
+  width: 2.2rem;
+  height: 2px;
+  background: var(--cobalt);
+}
+
+.record-empty {
+  padding: 1.6rem 0;
+  color: var(--ink-2);
+  font-family: var(--mono);
+  font-size: var(--micro-wide);
+  letter-spacing: 0.02em;
+}
+
+/* Formulario: entrada de ficha técnica */
+.entry {
+  border: 1px solid var(--rule-strong);
+  background: var(--plate-raised);
+  padding: clamp(1.3rem, 3vw, 2rem);
+}
+
+.entry__title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 1.3rem;
+}
+
+.entry__title h3 {
+  font-size: 1.16rem;
+}
+
+.entry__title span {
+  font-family: var(--mono);
+  font-size: var(--micro);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.field {
+  margin-bottom: 1.15rem;
+}
+
+.field label {
+  display: block;
+  font-family: var(--mono);
+  font-size: var(--micro);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  margin-bottom: 0.4rem;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 0.72rem 0.8rem;
+  background: var(--plate);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius);
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: var(--ink-3);
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--cobalt);
+  background: #fff;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 8.5rem;
+}
+
+.field__hint {
+  display: block;
+  margin-top: 0.4rem;
+  font-family: var(--mono);
+  font-size: var(--micro);
+  letter-spacing: 0.02em;
+  color: var(--ink-3);
+}
+
+/* Los estados se imprimen en el flujo, no como chrome flotante */
+.field.is-invalid input,
+.field.is-invalid textarea {
+  border-color: var(--verm);
+  background: var(--verm-wash);
+}
+
+.field__error {
+  display: none;
+  margin-top: 0.45rem;
+  font-family: var(--mono);
+  font-size: var(--micro);
+  letter-spacing: 0.02em;
+  color: #b12c0c;
+}
+
+.field.is-invalid .field__error {
+  display: block;
+}
+
+.entry__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.9rem 1.2rem;
+  margin-top: 1.4rem;
+}
+
+.entry__foot .mono {
+  font-size: var(--micro);
+  color: var(--ink-3);
+}
+
+.printout {
+  display: flex;
+  gap: 0.7rem;
+  align-items: flex-start;
+  margin-top: 1.2rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: var(--micro-wide);
+  letter-spacing: 0.02em;
+  line-height: 1.55;
+}
+
+.printout--ok {
+  color: var(--ok);
+}
+
+.printout--err {
+  color: #b12c0c;
+}
+
+.printout__mark {
+  flex: 0 0 auto;
+  font-weight: 600;
+}
+
+.printout[hidden] {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   Lámina 07 — contacto
+   -------------------------------------------------------------------------- */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  border: 1px solid var(--rule-strong);
+  background: var(--rule);
+}
+
+.contact-cell {
+  background: var(--plate-raised);
+  padding: clamp(1.3rem, 3vw, 2rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.contact-cell__icon {
+  width: 30px;
+  height: 30px;
+  color: var(--cobalt);
+}
+
+.contact-cell__icon svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.contact-cell dt {
+  font-family: var(--mono);
+  font-size: var(--micro);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.contact-cell dd {
+  margin: 0;
+  font-weight: 600;
+  font-size: 1.06rem;
+  letter-spacing: -0.01em;
+}
+
+.contact-cell dd a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule-strong);
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.contact-cell dd a:hover {
+  color: var(--cobalt);
+  border-color: var(--cobalt);
+}
+
+.contact-close {
+  margin-top: clamp(1.6rem, 4vw, 2.6rem);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+}
+
+.contact-close p {
+  max-width: 66ch;
+  color: var(--ink-2);
+}
+
+.site-foot {
+  border-top: 1px solid var(--rule-strong);
+  background: var(--plate-sunk);
+}
+
+.site-foot__inner {
+  max-width: var(--plate-w);
+  margin-inline: auto;
+  padding: 1.7rem var(--gutter);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem 1.6rem;
+  font-family: var(--mono);
+  font-size: var(--micro);
+  letter-spacing: 0.03em;
+  color: var(--ink-3);
+}
+
+/* Acción flotante de WhatsApp */
+.float-action {
+  position: fixed;
+  right: clamp(0.9rem, 3vw, 1.9rem);
+  bottom: clamp(0.9rem, 3vw, 1.9rem);
+  z-index: 50;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.1rem 0.85rem 0.9rem;
+  background: var(--ink);
+  color: #fff;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-family: var(--mono);
+  font-size: var(--micro);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  box-shadow: 0 12px 26px -14px rgba(20, 22, 27, 0.85);
+  transition: transform 0.25s var(--ease-out), background-color 0.25s;
+}
+
+.float-action:hover {
+  transform: translateY(-2px);
+  background: var(--cobalt-deep);
+}
+
+.float-action svg {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+}
+
+.float-action__label {
+  max-width: 12ch;
+}
+
+/* --------------------------------------------------------------------------
+   Revelado — visible por defecto, el movimiento solo añade
+   -------------------------------------------------------------------------- */
+
+.js .reveal {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+
+.js .procedure.reveal.reveal {
+  transition-delay: calc(var(--i, 0) * 60ms);
+}
+
+/* --------------------------------------------------------------------------
+   Adaptación
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+  .cover-grid,
+  .portrait,
+  .contact-sheet,
+  .records {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .fig-scene {
+    max-width: 480px;
+  }
+
+  .sheet-aside {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 860px) {
+  .site-head__inner {
+    flex-wrap: wrap;
+    row-gap: 0.6rem;
+  }
+
+  .plate-index {
+    order: 3;
+    width: 100%;
+    margin-inline: 0;
+    border-top: 1px solid var(--rule);
+  }
+
+  .site-head__cta {
+    margin-left: auto;
+  }
+
+  .sequence {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.8rem;
+    padding-top: 2.8rem;
+  }
+
+  .sequence::before {
+    display: none;
+  }
+
+  .step {
+    padding-left: 1.6rem;
+  }
+
+  .step::before {
+    top: 1.35rem;
+    left: -6px;
+  }
+
+  .step + .step {
+    border-top: 1px solid var(--rule);
+    padding-top: 1.8rem;
+  }
+
+  .contact-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .procedure {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.1rem;
+  }
+
+  .procedure__diagram {
+    aspect-ratio: 16 / 9;
+  }
+
+  .procedure:hover,
+  .procedure:nth-child(even):hover {
+    transform: none;
+  }
+
+  .float-action__label {
+    display: none;
+  }
+
+  .float-action {
+    padding: 0.9rem;
+    border-radius: 999px;
+  }
+}
+
+@media (max-width: 560px) {
+  .cover__legend {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .plate__caption {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  .plate__code {
+    text-align: left;
+  }
+
+  .trait-list > div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.25rem;
+  }
+
+  .site-head__cta .stamp__text {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .fig-figure {
+    transition: none;
+  }
 }

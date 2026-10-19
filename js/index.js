@@ -1,85 +1,269 @@
-// Animaciones
-const fadeElements = document.querySelectorAll('.fade-in');
-function handleScroll() {
-  fadeElements.forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 100 && rect.bottom > 100) {
-      el.classList.add('show');
-    } else {
-      el.classList.remove('show');
-    }
+// Vida Plena — interacción de la lámina: revelado, arco y parallax 3D.
+
+document.documentElement.classList.remove('no-js');
+document.documentElement.classList.add('js');
+
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// --- Revelado por scroll ---------------------------------------------------
+const revealTargets = document.querySelectorAll('.reveal');
+
+if (!('IntersectionObserver' in window) || prefersReducedMotion) {
+  revealTargets.forEach((el) => el.classList.add('is-visible'));
+} else {
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { rootMargin: '0px 0px -12% 0px', threshold: 0.12 }
+  );
+
+  revealTargets.forEach((el) => revealObserver.observe(el));
+}
+
+// --- Trazado del arco de rango --------------------------------------------
+const arcLayer = document.querySelector('.fig-arc');
+if (arcLayer) {
+  const draw = () => arcLayer.classList.add('is-drawn');
+  if (prefersReducedMotion) {
+    arcLayer.classList.add('is-drawn');
+  } else {
+    requestAnimationFrame(() => window.setTimeout(draw, 260));
+  }
+}
+
+// --- Reflejo de la lámina: figura y arco devueltos por la placa ------------
+(() => {
+  const target = document.querySelector('[data-scene]');
+  if (!target) return;
+  const arc = target.querySelector('[data-draw]');
+  const figure = target.querySelector('[data-figure]');
+  if (!figure) return;
+
+  const mirror = document.createElement('div');
+  mirror.className = 'fig-mirror';
+  mirror.setAttribute('aria-hidden', 'true');
+
+  const inner = document.createElement('div');
+  inner.className = 'fig-mirror__inner';
+
+  [arc, figure].forEach((node) => {
+    if (!node) return;
+    const clone = node.cloneNode(true);
+    clone.removeAttribute('data-figure');
+    clone.removeAttribute('data-draw');
+    clone.removeAttribute('id');
+    if (node === arc) clone.classList.add('is-drawn');
+    inner.appendChild(clone);
+  });
+
+  mirror.appendChild(inner);
+  target.appendChild(mirror);
+})();
+
+// --- Parallax de la escena (interacción firma) -----------------------------
+const scene = document.querySelector('[data-scene]');
+if (scene && !prefersReducedMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+  let frame = null;
+
+  const apply = (nx, ny) => {
+    scene.style.setProperty('--nx', nx.toFixed(3));
+    scene.style.setProperty('--ny', ny.toFixed(3));
+    scene.style.setProperty('--rx', `${(-ny * 7).toFixed(2)}deg`);
+    scene.style.setProperty('--ry', `${(nx * 13).toFixed(2)}deg`);
+  };
+
+  scene.addEventListener('pointermove', (event) => {
+    const rect = scene.getBoundingClientRect();
+    const nx = ((event.clientX - rect.left) / rect.width - 0.5) * 2;
+    const ny = ((event.clientY - rect.top) / rect.height - 0.5) * 2;
+    if (frame) cancelAnimationFrame(frame);
+    frame = requestAnimationFrame(() => apply(nx, ny));
+  });
+
+  scene.addEventListener('pointerleave', () => {
+    if (frame) cancelAnimationFrame(frame);
+    apply(0, 0);
   });
 }
-window.addEventListener('scroll', handleScroll);
-window.addEventListener('load', handleScroll);
 
+// --- Carrusel del registro fotográfico (Lámina 05) -------------------------
+document.querySelectorAll('[data-slider]').forEach((slider) => {
+  const track = slider.querySelector('[data-track]');
+  if (!track) return;
 
-// Validaciones para el Formulario de Testimonios
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("formTestimonio");
-  const nombreInput = document.getElementById("nombre");
-  const mensajeInput = document.getElementById("mensaje");
+  const slides = Array.from(track.children);
+  const dots = Array.from(slider.querySelectorAll('[data-slider-dot]'));
+  const prev = slider.querySelector('[data-slider-prev]');
+  const next = slider.querySelector('[data-slider-next]');
+  const counter = slider.querySelector('[data-slider-counter]');
 
-  form.addEventListener("submit", function (e) {
-    let errores = {};
+  if (slides.length < 2) {
+    slider.classList.add('is-single');
+    return;
+  }
 
+  const step = () => slides[0].getBoundingClientRect().width;
+  const current = () => {
+    const width = step();
+    return width ? Math.round(track.scrollLeft / width) : 0;
+  };
+  const goTo = (index, behavior) => {
+    const target = Math.max(0, Math.min(slides.length - 1, index));
+    track.scrollTo({
+      left: target * step(),
+      behavior: behavior || (prefersReducedMotion ? 'auto' : 'smooth'),
+    });
+  };
+  const sync = () => {
+    const index = Math.max(0, Math.min(slides.length - 1, current()));
+    dots.forEach((dot, d) => {
+      const active = d === index;
+      dot.classList.toggle('is-active', active);
+      if (active) dot.setAttribute('aria-current', 'true');
+      else dot.removeAttribute('aria-current');
+    });
+    if (prev) prev.disabled = index <= 0;
+    if (next) next.disabled = index >= slides.length - 1;
+    if (counter) {
+      const pad = (n) => String(n).padStart(2, '0');
+      counter.textContent = pad(index + 1) + ' / ' + pad(slides.length);
+    }
+  };
+
+  let ticking = false;
+  track.addEventListener(
+    'scroll',
+    () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        sync();
+        ticking = false;
+      });
+    },
+    { passive: true }
+  );
+
+  if (prev) prev.addEventListener('click', () => goTo(current() - 1));
+  if (next) next.addEventListener('click', () => goTo(current() + 1));
+  dots.forEach((dot) => {
+    dot.addEventListener('click', () => goTo(Number(dot.dataset.sliderDot)));
+  });
+
+  track.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      goTo(current() + 1);
+    } else if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      goTo(current() - 1);
+    } else if (event.key === 'Home') {
+      event.preventDefault();
+      goTo(0);
+    } else if (event.key === 'End') {
+      event.preventDefault();
+      goTo(slides.length - 1);
+    }
+  });
+
+  window.addEventListener('resize', () => goTo(current(), 'auto'));
+
+  sync();
+});
+
+// --- Validaciones para el Formulario de Testimonios ------------------------
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('formTestimonio');
+  if (!form) return;
+
+  const nombreInput = document.getElementById('nombre');
+  const mensajeInput = document.getElementById('mensaje');
+  const errorPrintout = form.querySelector('[data-printout-error]');
+  const errorText = form.querySelector('[data-error-text]');
+
+  const setFieldError = (input, message) => {
+    const field = input.closest('.field');
+    const slot = field ? field.querySelector('.field__error') : null;
+    if (!field || !slot) return;
+    if (message) {
+      field.classList.add('is-invalid');
+      slot.textContent = message;
+      input.setAttribute('aria-invalid', 'true');
+    } else {
+      field.classList.remove('is-invalid');
+      slot.textContent = '';
+      input.removeAttribute('aria-invalid');
+    }
+  };
+
+  const validate = () => {
+    const errores = {};
     const nombre = nombreInput.value.trim();
     const mensaje = mensajeInput.value.trim();
 
     // Validar nombre
     if (!nombre) {
-      errores.nombre = "El nombre es obligatorio.";
+      errores.nombre = 'El nombre es obligatorio.';
     } else if (!/^[a-zA-ZÁÉÍÓÚáéíóúÑñ\s]+$/.test(nombre)) {
-      errores.nombre = "El nombre solo debe contener letras.";
+      errores.nombre = 'El nombre solo debe contener letras.';
     } else if (nombre.length > 100) {
-      errores.nombre = "El nombre no puede superar los 100 caracteres.";
+      errores.nombre = 'El nombre no puede superar los 100 caracteres.';
     }
 
     // Validar mensaje
     if (!mensaje) {
-      errores.mensaje = "El mensaje no puede estar vacío.";
+      errores.mensaje = 'El mensaje no puede estar vacío.';
     } else if (mensaje.length > 600) {
-      errores.mensaje = "El mensaje no puede superar los 600 caracteres.";
+      errores.mensaje = 'El mensaje no puede superar los 600 caracteres.';
     }
 
-    // Limpiar mensajes de error anteriores
-    document.querySelectorAll(".error").forEach(el => el.textContent = "");
+    setFieldError(nombreInput, errores.nombre || '');
+    setFieldError(mensajeInput, errores.mensaje || '');
 
-    // Mostrar errores
+    return errores;
+  };
+
+  form.addEventListener('submit', (event) => {
+    const errores = validate();
+
     if (Object.keys(errores).length > 0) {
-      e.preventDefault();
-      if (errores.nombre) {
-        mostrarError("nombre", errores.nombre);
+      event.preventDefault();
+      if (errorPrintout) {
+        errorPrintout.hidden = false;
+        if (errorText) {
+          errorText.textContent = 'Revisa los campos marcados antes de enviar.';
+        }
       }
-      if (errores.mensaje) {
-        mostrarError("mensaje", errores.mensaje);
-      }
+      const firstInvalid = form.querySelector('.field.is-invalid input, .field.is-invalid textarea');
+      if (firstInvalid) firstInvalid.focus();
+      return;
     }
+
+    if (errorPrintout) errorPrintout.hidden = true;
   });
 
-  function mostrarError(campoId, mensaje) {
-    let campo = document.getElementById(campoId);
-    let parrafoError = campo.nextElementSibling;
+  nombreInput.addEventListener('blur', () => validate());
+  mensajeInput.addEventListener('blur', () => validate());
 
-    // Si el siguiente elemento no es un párrafo de error, lo creamos
-    if (!parrafoError || !parrafoError.classList.contains("error")) {
-      parrafoError = document.createElement("p");
-      parrafoError.classList.add("error");
-      campo.parentNode.insertBefore(parrafoError, campo.nextSibling);
-    }
-
-    parrafoError.textContent = mensaje;
+  if (errorPrintout && !errorPrintout.hidden) {
+    errorPrintout.scrollIntoView({ block: 'center', behavior: prefersReducedMotion ? 'auto' : 'smooth' });
   }
 });
 
-  // Oculta el mensaje de éxito automáticamente después de 5 segundos
-  document.addEventListener("DOMContentLoaded", () => {
-    const successMsg = document.querySelector(".success");
-    if (successMsg) {
-      setTimeout(() => {
-        successMsg.style.transition = "opacity 0.5s ease";
-        successMsg.style.opacity = "0";
-        setTimeout(() => successMsg.remove(), 500); // Elimina el elemento después
-      }, 5000); // 5 segundos
-    }
-  });
+// Oculta el mensaje de éxito automáticamente después de 6 segundos
+document.addEventListener('DOMContentLoaded', () => {
+  const successMsg = document.querySelector('.printout--ok:not([hidden])');
+  if (!successMsg) return;
+
+  window.setTimeout(() => {
+    successMsg.style.transition = 'opacity 0.5s ease';
+    successMsg.style.opacity = '0';
+    window.setTimeout(() => successMsg.setAttribute('hidden', ''), 500);
+  }, 6000);
+});
