@@ -1,0 +1,179 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-16T00:00:00Z",
+  "title": "Archived: Vida Plena — Atlas de Movimiento",
+  "extensions": {
+    "immersiveAtlas": {
+      "display": "clamp(2.8rem, 5.8vw, 5.5rem)",
+      "headline": "clamp(2rem, 4.5vw, 3.5rem)",
+      "serviceTitle": "clamp(1.5rem, 2.6vw, 2.1rem)",
+      "stepTitle": "1.35rem",
+      "quote": "clamp(1.15rem, 1.8vw, 1.5rem)",
+      "motion": "Hero perspective with elliptical measurement plane. Fine-pointer tilt limited to specimen/service diagrams. Scroll-snap slide content bends at most 9deg with 4.5% scale reduction in transit; track geometry remains unchanged. Reduced motion removes spatial transforms. No continuous loops.",
+      "contrast": "Atlas Ink services interlude; cobalt testimonial records with light text.",
+      "navigation": "Current section aria-current=location and reading-progress rule."
+    },
+    "colorMeta": {
+      "cold-plate": { "role": "neutral", "displayName": "Cold Plate", "canonical": "#eeeef0", "tonalRamp": ["#2f3034", "#4f5056", "#6f7078", "#8f909a", "#b0b1b9", "#d0d0d5", "#eeeef0", "#f7f7f8"] },
+      "plate-sunk": { "role": "neutral", "displayName": "Plate Sunk", "canonical": "#e5e6ea", "tonalRamp": ["#2c2d31", "#4b4c52", "#6a6b73", "#898a93", "#a8a9b1", "#c7c8ce", "#e5e6ea", "#f0f0f3"] },
+      "plate-raised": { "role": "neutral", "displayName": "Plate Raised", "canonical": "#f7f7f8", "tonalRamp": ["#323336", "#525357", "#727377", "#929397", "#b2b3b7", "#d2d3d6", "#f7f7f8", "#fbfbfc"] },
+      "atlas-ink": { "role": "neutral", "displayName": "Atlas Ink", "canonical": "#14161b", "tonalRamp": ["#14161b", "#2b2e36", "#434752", "#5b606d", "#747988", "#8d92a1", "#a6aab7", "#bfc2cc"] },
+      "ink-secondary": { "role": "neutral", "displayName": "Ink Secondary", "canonical": "#4c515b", "tonalRamp": ["#1c1e22", "#32353c", "#484c55", "#5e636e", "#757a86", "#8e939f", "#a8adb8", "#c2c6cf"] },
+      "ink-tertiary": { "role": "neutral", "displayName": "Ink Tertiary", "canonical": "#5f646e", "tonalRamp": ["#22252a", "#383b42", "#4e525a", "#656972", "#7c818b", "#9498a2", "#adb1b9", "#c6cad0"] },
+      "rule-hairline": { "role": "neutral", "displayName": "Rule Hairline", "canonical": "rgba(20, 22, 27, 0.16)" },
+      "rule-strong": { "role": "neutral", "displayName": "Rule Strong", "canonical": "rgba(20, 22, 27, 0.34)" },
+      "rule-faint": { "role": "neutral", "displayName": "Rule Faint", "canonical": "rgba(20, 22, 27, 0.07)" },
+      "cobalt": { "role": "primary", "displayName": "Cobalt", "canonical": "#2440db", "tonalRamp": ["#0e1a5e", "#16289c", "#1f34c0", "#2440db", "#4f66e3", "#7a8dec", "#a6b3f3", "#d2d9f9"] },
+      "cobalt-deep": { "role": "primary", "displayName": "Cobalt Deep", "canonical": "#1a2fa8", "tonalRamp": ["#0b1240", "#111d6e", "#16288c", "#1a2fa8", "#3d52c2", "#6a7ad4", "#9aa6e6", "#cdd3f4"] },
+      "cobalt-wash": { "role": "primary", "displayName": "Cobalt Wash", "canonical": "rgba(36, 64, 219, 0.09)" },
+      "vermellon": { "role": "secondary", "displayName": "Vermellón", "canonical": "#e8451f", "tonalRamp": ["#6d1a08", "#a12a10", "#cc3917", "#e8451f", "#ed6a4b", "#f28f78", "#f7b4a5", "#fbdad1"] },
+      "vermellon-wash": { "role": "secondary", "displayName": "Vermellón Wash", "canonical": "rgba(232, 69, 31, 0.1)" },
+      "wood": { "role": "tertiary", "displayName": "Wood", "canonical": "#d9b78c", "tonalRamp": ["#5a3a1c", "#7d552a", "#a0743d", "#c0955f", "#d9b78c", "#e3c8a6", "#edd8c1", "#f6e9dc"] },
+      "wood-lit": { "role": "tertiary", "displayName": "Wood Lit", "canonical": "#eccf9f", "tonalRamp": ["#63401f", "#8a5c2e", "#b17c42", "#d29a5e", "#eccf9f", "#f0dab7", "#f5e6cf", "#faf2e6"] },
+      "wood-shade": { "role": "tertiary", "displayName": "Wood Shade", "canonical": "#a97c4e", "tonalRamp": ["#3f2a18", "#5c3e24", "#7a5531", "#916841", "#a97c4e", "#c0966f", "#d5b295", "#e9cfbb"] },
+      "ok-green": { "role": "secondary", "displayName": "Ok Green", "canonical": "#1f7a4d", "tonalRamp": ["#0c3320", "#124a2f", "#18623e", "#1f7a4d", "#3d9a6a", "#6bb78f", "#9bd3b5", "#cce9da"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero headline only (Lámina 01)." },
+      "headline": { "displayName": "Headline", "purpose": "Section lámina titles in the plate caption bar." },
+      "title": { "displayName": "Title", "purpose": "Service procedure names; step titles smaller." },
+      "body": { "displayName": "Body", "purpose": "Running prose in ~65–72ch columns." },
+      "lede": { "displayName": "Lede", "purpose": "Plate lead lines." },
+      "label": { "displayName": "Label / Mono", "purpose": "Plate codes, figure captions, tags, dates, stamped button text." }
+    },
+    "shadows": [
+      { "name": "action-hover-lift", "value": "0 8px 18px -10px rgba(26, 47, 168, 0.75)", "purpose": "Cobalt glow under the stamp button on hover." },
+      { "name": "floating-action", "value": "0 12px 26px -14px rgba(20, 22, 27, 0.85)", "purpose": "The only persistent shadow; lifts the WhatsApp action off the plate." },
+      { "name": "wood-inset", "value": "inset -0.35em -0.4em 0.9em rgba(90, 58, 28, 0.28)", "purpose": "Modeled side-shadow on each manikin limb." },
+      { "name": "joint-drop", "value": "0 0.2em 0.5em rgba(90, 58, 28, 0.3)", "purpose": "Contact shadow under each wooden joint." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Default easing for reveals, arc draw-on, parallax, hover lifts." },
+      { "name": "ease-in-out", "value": "cubic-bezier(0.65, 0, 0.35, 1)", "purpose": "Symmetric easing alternative." },
+      { "name": "reveal", "value": "opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out)", "purpose": "Scroll reveal: opacity 0 + translateY(18px) to rest; staggered 60ms per procedure." },
+      { "name": "arc-draw", "value": "stroke-dashoffset 1.5s var(--ease-out)", "purpose": "Range arc draws on reveal from dashoffset 620 to 0." },
+      { "name": "parallax", "value": "transform 0.5s var(--ease-out)", "purpose": "Pointer-driven 3D shift of figure, arc, ghost numeral, and annotations." }
+    ],
+    "breakpoints": [
+      { "name": "lg", "value": "1024px" },
+      { "name": "md", "value": "860px" },
+      { "name": "sm", "value": "560px" }
+    ],
+    "focusRing": {
+      "name": "default-focus-visible",
+      "value": "outline: 2px solid #2440db; outline-offset: 3px; border-radius: 2px",
+      "purpose": "Global focus-visible ring on all interactive elements."
+    },
+    "reducedMotion": "prefers-reduced-motion: reduce collapses all animation/transition durations to 0.001ms, forces .reveal visible, and disables the figure transition; the arc renders pre-drawn and pointer parallax is not bound."
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "stamp",
+      "description": "Cobalt stamped action with a leading dot; the WhatsApp/contact CTA.",
+      "html": "<a class=\"ds-stamp\" href=\"#\"><span class=\"ds-stamp__dot\"></span>Escríbeme por WhatsApp</a>",
+      "css": ".ds-stamp{display:inline-flex;align-items:center;gap:0.55rem;padding:0.75rem 1.1rem;background:var(--cobalt);color:#fff;border:1px solid var(--cobalt);border-radius:var(--radius);font-family:var(--mono);font-size:var(--micro);text-transform:uppercase;letter-spacing:0.06em;text-decoration:none;cursor:pointer;transition:background-color 0.2s,transform 0.2s var(--ease-out),box-shadow 0.2s;} .ds-stamp__dot{width:7px;height:7px;border-radius:50%;background:currentColor;} .ds-stamp:hover{background:var(--cobalt-deep);border-color:var(--cobalt-deep);transform:translateY(-1px);box-shadow:0 8px 18px -10px rgba(26,47,168,0.75);} .ds-stamp:active{transform:translateY(0);} .ds-stamp:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px;}"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "stamp-ghost",
+      "description": "Secondary action; transparent until hover, then solid ink.",
+      "html": "<a class=\"ds-stamp-ghost\" href=\"#\">Ver servicios</a>",
+      "css": ".ds-stamp-ghost{display:inline-flex;align-items:center;gap:0.55rem;padding:0.75rem 1.1rem;background:transparent;color:var(--ink);border:1px solid var(--rule-strong);border-radius:var(--radius);font-family:var(--mono);font-size:var(--micro);text-transform:uppercase;letter-spacing:0.06em;text-decoration:none;cursor:pointer;transition:background-color 0.2s,color 0.2s,border-color 0.2s;} .ds-stamp-ghost:hover{background:var(--ink);border-color:var(--ink);color:#fff;} .ds-stamp-ghost:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px;}"
+    },
+    {
+      "name": "Tag Chip",
+      "kind": "chip",
+      "refersTo": "tag",
+      "description": "Mono uppercase facet tag under a service procedure.",
+      "html": "<span class=\"ds-tag\">Memoria</span>",
+      "css": ".ds-tag{display:inline-block;font-family:var(--mono);font-size:var(--micro);letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-2);border:1px solid var(--rule-strong);border-radius:2px;padding:0.3rem 0.55rem;}"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Labeled form input; cold-plate fill, cobalt border on focus.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field__label\">Nombre</span><input class=\"ds-field__input\" type=\"text\" placeholder=\"Tu nombre\" /></label>",
+      "css": ".ds-field{display:block;font-family:var(--grotesk);} .ds-field__label{display:block;font-family:var(--mono);font-size:var(--micro);letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-2);margin-bottom:0.4rem;} .ds-field__input{width:100%;padding:0.72rem 0.8rem;background:var(--plate);border:1px solid var(--rule-strong);border-radius:var(--radius);font:inherit;color:var(--ink);transition:border-color 0.2s,background-color 0.2s;} .ds-field__input::placeholder{color:var(--ink-3);} .ds-field__input:focus{outline:none;border-color:var(--cobalt);background:#fff;}"
+    },
+    {
+      "name": "Floating WhatsApp Action",
+      "kind": "custom",
+      "refersTo": "float-action",
+      "description": "Fixed ink pill action bottom-right; the single persistent-shadow element.",
+      "html": "<a class=\"ds-fab\" href=\"#\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\" fill=\"currentColor\"><path d=\"M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.2-1.3c1.4.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2Z\"/></svg><span>WhatsApp</span></a>",
+      "css": ".ds-fab{position:relative;display:inline-flex;align-items:center;gap:0.6rem;padding:0.85rem 1.1rem 0.85rem 0.9rem;background:var(--ink);color:#fff;border-radius:var(--radius);text-decoration:none;font-family:var(--mono);font-size:var(--micro);letter-spacing:0.04em;text-transform:uppercase;box-shadow:0 12px 26px -14px rgba(20,22,27,0.85);transition:transform 0.25s var(--ease-out),background-color 0.25s;} .ds-fab svg{width:20px;height:20px;} .ds-fab:hover{transform:translateY(-2px);background:var(--cobalt-deep);} .ds-fab:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px;}"
+    },
+    {
+      "name": "Plate Frame",
+      "kind": "card",
+      "refersTo": "plate-frame",
+      "description": "Raised plate with corner crops and a mono caption; frames a photographic specimen in a 4:3 landscape crop (head-biased via object-position).",
+      "html": "<figure class=\"ds-plate\"><img alt=\"\" src=\"img/yo.jpg\" /><figcaption class=\"ds-plate__caption\"><span>Fig. 02.a</span><span>Retrato</span></figcaption></figure>",
+      "css": ".ds-plate{position:relative;margin:0;background:var(--plate-raised);border:1px solid var(--rule-strong);padding:1.1rem;font-family:var(--grotesk);} .ds-plate img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:center 42%;} .ds-plate__caption{display:flex;justify-content:space-between;gap:1rem;margin-top:0.8rem;padding-top:0.7rem;border-top:1px solid var(--rule);font-family:var(--mono);font-size:var(--micro);letter-spacing:0.04em;color:var(--ink-3);}"
+    },
+    {
+      "name": "Procedure Row",
+      "kind": "custom",
+      "refersTo": "procedure",
+      "description": "Service lámina row: numbered mono code, diagram plate, and a 3D hover tilt.",
+      "html": "<article class=\"ds-procedure\"><span class=\"ds-procedure__diagram\"></span><div class=\"ds-procedure__body\"><span class=\"ds-procedure__no\">03.1</span><h3>Estimulación cognitiva</h3></div></article>",
+      "css": ".ds-procedure{display:grid;grid-template-columns:minmax(0,0.72fr) minmax(0,1.28fr);gap:clamp(1.2rem,3vw,3rem);align-items:center;padding:clamp(1.4rem,3vw,2.4rem) 0;border-top:1px solid var(--rule);transition:transform 0.42s var(--ease-out);font-family:var(--grotesk);} .ds-procedure:last-child{border-bottom:1px solid var(--rule);} .ds-procedure:hover{transform:perspective(900px) rotateY(-2.4deg) translateZ(10px);} .ds-procedure__diagram{display:block;aspect-ratio:16/10;background:var(--plate-raised);border:1px solid var(--rule);} .ds-procedure__no{font-family:var(--mono);font-size:var(--micro);color:var(--cobalt);letter-spacing:0.06em;} .ds-procedure h3{margin:0.4rem 0 0;font-size:clamp(1.25rem,2vw,1.62rem);font-weight:700;line-height:1.06;letter-spacing:-0.022em;}"
+    },
+    {
+      "name": "Plate Index",
+      "kind": "nav",
+      "refersTo": "plate-index-item",
+      "description": "Sticky numbered lámina navigation; cobalt underline on hover.",
+      "html": "<nav class=\"ds-index\"><a class=\"ds-index__item\" href=\"#\"><span class=\"ds-index__no\">02</span><span class=\"ds-index__label\">Quién soy</span></a></nav>",
+      "css": ".ds-index{display:flex;gap:0.15rem;font-family:var(--grotesk);} .ds-index__item{display:inline-flex;align-items:baseline;gap:0.4rem;padding:0.45rem 0.6rem;color:var(--ink-2);text-decoration:none;border-bottom:2px solid transparent;transition:color 0.18s,border-color 0.18s;} .ds-index__item:hover,.ds-index__item:focus-visible{color:var(--ink);border-color:var(--cobalt);} .ds-index__no{font-family:var(--mono);font-size:var(--micro);color:var(--ink-3);} .ds-index__item:hover .ds-index__no{color:var(--cobalt);} .ds-index__label{font-size:0.9rem;font-weight:500;}"
+    },
+    {
+      "name": "Scroll-snap Carousel",
+      "kind": "custom",
+      "refersTo": "slider",
+      "description": "Shared scroll-snap carousel: an overflow-clipped, scrollbar-hidden track of full-width slides advanced by bordered ghost buttons with keyboard (arrows/Home/End) and native swipe. Two bearers — the photographic registry (Lámina 05) frames a 3:2 crop per slide with tick dots (detail slides re-view the same photograph at scale via --zoom/--ox/--oy); the testimonios registry (Lámina 06) shows one record card per slide with a mono nn/NN counter. Controls collapse when only one slide exists.",
+      "html": "<div class=\"ds-slider\"><ul class=\"ds-slider__track\"><li class=\"ds-slider__slide\"><figure class=\"ds-sheet\"><div class=\"ds-sheet__media\"><img alt=\"\" src=\"img/trabajo.jpg\" /></div><figcaption class=\"ds-sheet__meta\"><span>Fig. 05.a — Sesión en curso</span><span>1 / 3</span></figcaption></figure></li></ul><div class=\"ds-slider__controls\"><button class=\"ds-slider__btn\" aria-label=\"Fotografía anterior\">‹</button><ol class=\"ds-slider__dots\"><li><button class=\"ds-slider__dot is-active\" aria-label=\"Ir a la fotografía 1 de 3\"></button></li></ol><button class=\"ds-slider__btn\" aria-label=\"Fotografía siguiente\">›</button></div></div>",
+      "css": ".ds-slider{min-width:0;} .ds-slider__track{display:flex;align-items:stretch;margin:0;padding:0;list-style:none;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:none;} .ds-slider__track::-webkit-scrollbar{display:none;} .ds-slider__slide{flex:0 0 100%;min-width:0;scroll-snap-align:start;scroll-snap-stop:always;} .ds-sheet{position:relative;margin:0;border:1px solid var(--rule-strong);background:var(--plate-raised);padding:0.9rem;} .ds-sheet__media{position:relative;overflow:hidden;aspect-ratio:3/2;background:var(--plate);} .ds-sheet__media img{display:block;width:100%;height:100%;object-fit:cover;transform:scale(var(--zoom,1));transform-origin:var(--ox,50%) var(--oy,50%);} .ds-sheet__meta{display:flex;justify-content:space-between;gap:1rem;margin-top:0.75rem;padding-top:0.65rem;border-top:1px solid var(--rule);font-family:var(--mono);font-size:var(--micro);letter-spacing:0.04em;color:var(--ink-3);} .ds-slider__controls{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:0.9rem;} .ds-slider__btn{display:grid;place-items:center;width:2.4rem;height:2.4rem;padding:0;background:var(--plate-raised);border:1px solid var(--rule-strong);border-radius:3px;color:var(--ink);cursor:pointer;} .ds-slider__btn:disabled{opacity:0.35;cursor:default;} .ds-slider__dots{display:flex;gap:0.35rem;margin:0;padding:0;list-style:none;} .ds-slider__dot{position:relative;width:2.25rem;height:1.5rem;padding:0;background:transparent;border:0;cursor:pointer;} .ds-slider__dot::before{content:\"\";position:absolute;inset:50% 0 auto;height:3px;transform:translateY(-50%);background:var(--rule-strong);border-radius:2px;} .ds-slider__dot.is-active::before{background:var(--cobalt);} .ds-slider.is-single .ds-slider__controls{display:none;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Movement Atlas",
+    "overview": "The page is a printed anatomical-atlas plate, not a website. Its organizing device is the numbered lámina (01–07): every section is a plate with a mono caption header carrying its name and code, laid on a cold laboratory ground crossed by an SVG measurement reticle, a ruler edge, range arcs, and leader-line annotations. The offer is presented the way a movement study is presented — manikin, arc, tick, measurement — so that occupational therapy reads as instrumented and precise rather than soft. The world is deliberately cold and clinical: a three-step laboratory plate with hairlines doing the work that cards and ambient shadow usually do. Three material voices carry meaning — wood in the named 3D manikin, cobalt in arcs and actions, vermellón only on the active element. All figure, arc, reticle, and pictogram geometry is authored in CSS/SVG; nothing imitates a photograph.",
+    "keyCharacteristics": [
+      "Cold laboratory plate in three tonal steps, structured by hairline rules rather than bordered cards and ambient shadow.",
+      "Numbered láminas (01–07) with mono caption codes as the page's index and identity.",
+      "Three material voices only: wood (the figure), cobalt (arcs and actions), vermellón (active element alone).",
+      "Instrumented feel: measurement reticle, ruler, range arcs, annotation leader lines and ticks.",
+      "CSS-authored geometry throughout; the reflection of the plate itself is a signature mechanism."
+    ],
+    "rules": [
+      { "name": "The Active-Only Vermellón Rule", "body": "Vermellón (#e8451f) appears only on the element that is active or in error. Its entire value is scarcity; if it is not marking the live point, it does not appear.", "section": "colors" },
+      { "name": "The Cold-Plate Rule", "body": "The ground is a cold laboratory plate (#eeeef0) with three tonal steps. The warm cream/paper ground typical of wellness pages is refused — the world is instrumented, not cozy.", "section": "colors" },
+      { "name": "The Two-Voice Rule", "body": "Bricolage Grotesque speaks; Martian Mono only codes, counts, numbers, and stamps. Mono never sets running prose, and the grotesque never sets a plate code.", "section": "typography" },
+      { "name": "The Micro Floor Rule", "body": "No functional text falls below 0.76rem (~12px) — the --micro floor the build honors for captions, tags, and hints.", "section": "typography" },
+      { "name": "The Numbered-Lámina Rule", "body": "Every section is a numbered plate with a mono caption code, and those numbers are the navigation. New sections extend the plate series (08, 09…), they do not become unnumbered blocks.", "section": "layout" },
+      { "name": "The Measure-Band Rule", "body": "Running body prose occupies roughly 65–72ch. The hero lede (a 58ch column-bound measure) and the three-up steps (39ch) are declared column-bound deviations of their containers, not a global maximum — do not read them as a house line-length rule.", "section": "layout" },
+      { "name": "The Flat-Plate Rule", "body": "Surfaces are flat at rest. Shadow appears only as a response to state (hover lift, focus, the floating action) or as modeled material inside the figure — never as ambient elevation on cards.", "section": "elevation" },
+      { "name": "The Plate-Reflection Rule", "body": "The figure and its arc are returned by the plate below as a mirrored, clipped, blurred reflection (.fig-mirror, opacity 0.3, scaleY(-1) with a masked falloff). This is a signature mechanism of the world and is expected on the hero figure; it is never duplicated as a generic content treatment.", "section": "elevation" },
+      { "name": "The Two-to-Four Rule", "body": "Corners are 2–4px. Interactive and flat surfaces never exceed it, never square off to 0 where the world uses 3px, and only the modeled figure, the logo, and the mobile floating action may go fully round.", "section": "shapes" }
+    ],
+    "dos": [
+      "Do keep the ground on the cold plate (#eeeef0) and reach for the three tonal steps for layering; treat the measurement reticle as structure, not decoration.",
+      "Do number every section as a lámina with a mono caption code (Two-to-Four Rule corners, 2–4px).",
+      "Do let cobalt be the only action color; reserve vermellón (#e8451f) for the single active or invalid element.",
+      "Do author figures, arcs, ticks, and pictograms as CSS/SVG geometry with 1px hairlines, and keep body prose within ~65–72ch.",
+      "Do honor prefers-reduced-motion — reveal, arc draw-on, and pointer parallax all flatten and the reflection stays put."
+    ],
+    "donts": [
+      "Don't use warm cream or paper grounds, or reintroduce the pastel rounded-card wellness look the world rejects.",
+      "Don't add ambient card shadows or lift surfaces that are not responding to state (Flat-Plate Rule).",
+      "Don't use vermellón as a fill, background, or decoration — it marks only the live point.",
+      "Don't set running prose in Martian Mono, or drop any functional label below 0.76rem.",
+      "Don't exceed 4px on a flat interactive corner, and don't square those corners to 0."
+    ]
+  }
+}

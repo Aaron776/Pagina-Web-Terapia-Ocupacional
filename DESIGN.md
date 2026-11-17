@@ -1,260 +1,213 @@
 ---
-name: Vida Plena — Terapia Ocupacional
-description: Atlas de Movimiento — a printed anatomical-atlas plate system for an occupational-therapy practice.
+name: "Vida Plena — Espacio para avanzar"
+description: "Cuidado cercano, fotografía humana y espacio para la autonomía cotidiana."
 colors:
-  cold-plate: "#eeeef0"
-  plate-sunk: "#e5e6ea"
-  plate-raised: "#f7f7f8"
-  atlas-ink: "#14161b"
-  ink-secondary: "#4c515b"
-  ink-tertiary: "#5f646e"
-  rule-hairline: "rgba(20, 22, 27, 0.16)"
-  rule-strong: "rgba(20, 22, 27, 0.34)"
-  rule-faint: "rgba(20, 22, 27, 0.07)"
-  cobalt: "#2440db"
-  cobalt-deep: "#1a2fa8"
-  cobalt-wash: "rgba(36, 64, 219, 0.09)"
-  vermellon: "#e8451f"
-  vermellon-wash: "rgba(232, 69, 31, 0.1)"
-  wood: "#d9b78c"
-  wood-lit: "#eccf9f"
-  wood-shade: "#a97c4e"
-  ok-green: "#1f7a4d"
+  violet: "#6041a6"
+  violet-deep: "#39235e"
+  lavender: "#f3f0fa"
+  lavender-mid: "#e4dbf5"
+  peach: "#f9dfcc"
+  mint: "#e4efe9"
+  ink: "#2e2839"
+  ink-2: "#635e6c"
+  white: "#ffffff"
+  rule: "#dfd9e7"
+  error: "#a32e38"
+  success: "#226347"
 typography:
   display:
-    fontFamily: "Bricolage Grotesque, Segoe UI, system-ui, sans-serif"
-    fontSize: "clamp(2.5rem, 5.6vw, 5rem)"
-    fontWeight: 700
-    lineHeight: 1.06
-    letterSpacing: "-0.022em"
+    fontFamily: "Figtree, Segoe UI, sans-serif"
+    fontSize: "clamp(3rem, 5.1vw, 4.65rem)"
+    fontWeight: 600
+    lineHeight: 1.13
+    letterSpacing: "-0.035em"
   headline:
-    fontFamily: "Bricolage Grotesque, Segoe UI, system-ui, sans-serif"
-    fontSize: "clamp(1.7rem, 3.4vw, 2.6rem)"
-    fontWeight: 700
-    lineHeight: 1.06
-    letterSpacing: "-0.022em"
+    fontFamily: "Figtree, Segoe UI, sans-serif"
+    fontSize: "clamp(2rem, 3.3vw, 3rem)"
+    fontWeight: 600
+    lineHeight: 1.13
+    letterSpacing: "-0.035em"
   title:
-    fontFamily: "Bricolage Grotesque, Segoe UI, system-ui, sans-serif"
-    fontSize: "clamp(1.25rem, 2vw, 1.62rem)"
-    fontWeight: 700
-    lineHeight: 1.06
-    letterSpacing: "-0.022em"
+    fontFamily: "Figtree, Segoe UI, sans-serif"
+    fontSize: "1.4rem"
+    fontWeight: 600
+    lineHeight: 1.13
+    letterSpacing: "-0.035em"
   body:
-    fontFamily: "Bricolage Grotesque, Segoe UI, system-ui, sans-serif"
-    fontSize: "clamp(1rem, 0.62vw + 0.9rem, 1.11rem)"
+    fontFamily: "Figtree, Segoe UI, sans-serif"
+    fontSize: "17px"
     fontWeight: 400
-    lineHeight: 1.62
-    letterSpacing: "normal"
-  lede:
-    fontFamily: "Bricolage Grotesque, Segoe UI, system-ui, sans-serif"
-    fontSize: "clamp(1.02rem, 1.4vw, 1.16rem)"
-    fontWeight: 400
-    lineHeight: 1.55
-  label:
-    fontFamily: "Martian Mono, ui-monospace, SFMono-Regular, Consolas, monospace"
-    fontSize: "0.76rem"
-    fontWeight: 500
-    letterSpacing: "0.08em"
+    lineHeight: 1.65
+  action:
+    fontFamily: "Figtree, Segoe UI, sans-serif"
+    fontSize: "1rem"
+    fontWeight: 600
+    lineHeight: 1.35
 rounded:
-  sm: "2px"
-  md: "3px"
+  field: "12px"
+  tile: "18px"
+  frame: "24px"
   pill: "999px"
 spacing:
-  gutter: "clamp(1.25rem, 5vw, 5.5rem)"
-  plate-block: "clamp(3.4rem, 8vw, 7rem)"
+  small: "12px"
+  medium: "20px"
+  large: "25px"
+  section: "clamp(4.5rem, 7.8vw, 7rem)"
 components:
-  stamp:
-    backgroundColor: "{colors.cobalt}"
-    textColor: "#ffffff"
-    rounded: "{rounded.md}"
-    padding: "0.75rem 1.1rem"
-  stamp-hover:
-    backgroundColor: "{colors.cobalt-deep}"
-    textColor: "#ffffff"
-  stamp-ghost:
-    backgroundColor: "transparent"
-    textColor: "{colors.atlas-ink}"
-    rounded: "{rounded.md}"
-    padding: "0.75rem 1.1rem"
-  tag:
-    backgroundColor: "transparent"
-    textColor: "{colors.ink-secondary}"
-    rounded: "{rounded.sm}"
-    padding: "0.3rem 0.55rem"
+  button-primary:
+    backgroundColor: "{colors.violet}"
+    textColor: "{colors.white}"
+    typography: "{typography.action}"
+    rounded: "{rounded.pill}"
+    padding: "15px 24px"
+  button-primary-hover:
+    backgroundColor: "{colors.violet-deep}"
+    textColor: "{colors.white}"
+  button-small:
+    backgroundColor: "{colors.violet}"
+    textColor: "{colors.white}"
+    rounded: "{rounded.pill}"
+    padding: "12px 20px"
+  text-link:
+    textColor: "{colors.violet}"
   field:
-    backgroundColor: "{colors.cold-plate}"
-    textColor: "{colors.atlas-ink}"
-    rounded: "{rounded.md}"
-    padding: "0.72rem 0.8rem"
-  float-action:
-    backgroundColor: "{colors.atlas-ink}"
-    textColor: "#ffffff"
-    rounded: "{rounded.md}"
-    padding: "0.85rem 1.1rem 0.85rem 0.9rem"
-  plate-frame:
-    backgroundColor: "{colors.plate-raised}"
-    textColor: "{colors.atlas-ink}"
-    rounded: "0px"
-    padding: "0.9rem"
-  plate-index-item:
-    backgroundColor: "transparent"
-    textColor: "{colors.ink-secondary}"
-    rounded: "0px"
-    padding: "0.45rem 0.6rem"
+    backgroundColor: "{colors.white}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.field}"
+    padding: "13px 16px"
+  record:
+    backgroundColor: "{colors.white}"
+    textColor: "{colors.violet-deep}"
+    rounded: "{rounded.frame}"
+    padding: "38px"
 ---
 
-# Design System: Vida Plena — Terapia Ocupacional
+# Design System: Vida Plena
 
 ## Overview
 
-**Creative North Star: "The Movement Atlas"**
+**Creative North Star: "Espacio para avanzar"**
 
-The page is a printed anatomical-atlas plate, not a website. Its organizing device is the numbered *lámina* (01–07): every section is a plate with a mono caption header carrying its name and code, laid on a cold laboratory ground crossed by an SVG measurement reticle, a ruler edge, range arcs, and leader-line annotations. The offer is presented the way a movement study is presented — manikin, arc, tick, measurement — so that occupational therapy reads as instrumented and precise rather than soft.
+A welcoming community-care editorial world: everyday people, open space and warm rounded photographic windows make care approachable. White and pale lavender carry the page; violet supplies hierarchy and action, while apricot adds human warmth.
 
-The world is deliberately cold and clinical: a three-step laboratory plate (*cold-plate*, *plate-sunk*, *plate-raised*) with hairlines doing the work that cards and ambient shadow usually do. Three material voices carry meaning — wood in the named 3D manikin, cobalt in arcs and actions, vermellón only on the active element. All figure, arc, reticle, and pictogram geometry is authored in CSS/SVG; nothing imitates a photograph. The warm cream "wellness" ground and the rounded pastel card that the category publishes are both refused.
+Depth belongs to photographs and small supporting surfaces, not to the reading plane. Bounded photo tilt and spatial carousel transitions add tactility without moving body copy. The reduced-motion version retains the same content and controls without transforms or animation.
 
 **Key Characteristics:**
-- Cold laboratory plate in three tonal steps, structured by hairline rules rather than bordered cards and ambient shadow.
-- Numbered láminas (01–07) with mono caption codes as the page's index and identity.
-- Three material voices only: wood (the figure), cobalt (arcs and actions), vermellón (active element alone).
-- Instrumented feel: measurement reticle, ruler, range arcs, annotation leader lines and ticks.
-- CSS-authored geometry throughout; the reflection of the plate itself is a signature mechanism.
+- People-first existing photography.
+- Generous whitespace and plain-language hierarchy.
+- Rounded controls, soft photographic layers and restrained depth.
+- Keyboard-accessible interactions with a static reduced-motion alternative.
+
+Recorded from `index.php`, `css/estilos.css` and `js/index.js`, checked against `.impeccable/review/desktop.png`, `mobile.png`, `user-1000.png` and `desktop-reduced.png`. The surface-specific contract lives in `.impeccable/surfaces/index-php.md`; archived Atlas materials are not current system authority.
 
 ## Colors
 
-A cold, near-monochrome laboratory ground with a single structural blue, a single reserved warning red, and one warm material. The palette is dominated by the plate and its hairlines; color is an event, not a wash.
+Soft lavender and apricot temper a clear violet action palette, with dark plum and muted ink supporting readable copy. Frontmatter values are normative and match the stylesheet. Sidecar tonal ramps are synthesized panel previews, not additional shipped palette tokens.
 
 ### Primary
-- **Cobalt** (#2440db): the structural accent. Arc strokes, the range body, primary action (`.stamp`), links, focus ring, procedure numbers, `::selection`, and the active hover underline in the plate index. It is the only saturated color allowed to carry action.
-- **Cobalt Deep** (#1a2fa8): the pressed/hover end of every cobalt surface (button hover fill, floating action hover).
-- **Cobalt Wash** (rgba(36, 64, 219, 0.09)): the faintest cobalt tint for incidental fills.
+- **Violet** (`violet`): primary buttons, links, emphasis, focus outlines and selected carousel dots.
+- **Deep violet** (`violet-deep`): headings, the inverted journey plane, floating contact action and button hover.
 
 ### Secondary
-- **Vermellón** (#e8451f): reserved strictly for the *active* element — the live point in a procedure diagram (`.procedure__dot`) and invalid form state. Never decorative, never a background.
-- **Vermellón Wash** (rgba(232, 69, 31, 0.1)): the invalid-field background.
-- **Ok Green** (#1f7a4d): the single success/confirmation tone in the form printout.
+- **Pale lavender** (`lavender`): welcoming section planes and gallery captions.
+- **Layered lavender** (`lavender-mid`): photographic backing, service icon tile and quiet text on the inverted plane.
 
 ### Tertiary
-- **Wood** (#d9b78c): the modeled material of the manikin, applied as a shaded gradient across every limb.
-- **Wood Lit** (#eccf9f) and **Wood Shade** (#a97c4e): the highlight and shadow stops of the wood gradient and the joint radial.
+- **Apricot** (`peach`): warm backing, circular identity markers, selected service icon tile and inverted-plane emphasis.
+- **Soft mint** (`mint`): complementary physical-rehabilitation icon tile, not a competing action color.
 
 ### Neutral
-- **Cold Plate** (#eeeef0): the page and default surface ground.
-- **Plate Sunk** (#e5e6ea): recessed surfaces — footer, sheet aside, scrollbar track.
-- **Plate Raised** (#f7f7f8): raised surfaces — specimen, sheet frame, entry form, contact cells.
-- **Atlas Ink** (#14161b): body and heading text, the floating action ground, the darkest figure marks.
-- **Ink Secondary** (#4c515b): prose and secondary labels.
-- **Ink Tertiary** (#5f646e): captions, codes, hints, muted mono.
-- **Rule Hairline** (rgba(20, 22, 27, 0.16)): the default 1px divider.
-- **Rule Strong** (rgba(20, 22, 27, 0.34)): emphasized dividers, input borders, plate frames.
-- **Rule Faint** (rgba(20, 22, 27, 0.07)): the measurement reticle and grid lines.
+- **White** (`white`): page canvas, fields, quote cards and text on violet.
+- **Ink** (`ink`): default copy.
+- **Muted ink** (`ink-2`): descriptive copy, captions and supporting labels.
+- **Quiet rule** (`rule`): separators and input/control borders.
+- **Error / Success** (`error`, `success`): validation messages and submission feedback only.
 
 ### Named Rules
-**The Active-Only Vermellón Rule.** Vermellón (#e8451f) appears only on the element that is active or in error. Its entire value is scarcity; if it is not marking the live point, it does not appear.
-
-**The Cold-Plate Rule.** The ground is a cold laboratory plate (#eeeef0) with three tonal steps. The warm cream/paper ground typical of wellness pages is refused — the world is instrumented, not cozy.
+**The Action Stays Violet Rule.** Use violet for actionable emphasis; reserve apricot and mint for supporting material rather than competing primary actions.
 
 ## Typography
 
-**Display Font:** Bricolage Grotesque (with Segoe UI, system-ui, sans-serif)
-**Body Font:** Bricolage Grotesque
-**Label/Mono Font:** Martian Mono (with ui-monospace, SFMono-Regular, Consolas, monospace)
+**Display Font:** Figtree (fallback: Segoe UI, sans-serif).
+**Body Font:** The same Figtree stack; no second display or mono voice.
 
-**Character:** A single grotesque carries all language — headings, lede, prose — with optical-size variation from a 5rem display down to a 1rem body. Martian Mono is reserved for the machine voice: plate codes, figures, dates, tags, and stamped labels. The pairing reads as a research plate: one humanist voice and one unblinking technical voice.
+**Character:** Open, friendly sans-serif forms with compact, balanced headings and relaxed prose. The hierarchy is fluid rather than a fixed-ratio scale.
 
 ### Hierarchy
-- **Display** (700, clamp(2.5rem, 5.6vw, 5rem), 1.06): the hero headline only, balanced text, tight -0.022em tracking.
-- **Headline** (700, clamp(1.7rem, 3.4vw, 2.6rem), 1.06): section lámina titles in the caption bar.
-- **Title** (700, clamp(1.25rem, 2vw, 1.62rem), 1.06): service procedure names; step titles sit smaller at 1.16rem.
-- **Body** (400, clamp(1rem, 0.62vw + 0.9rem, 1.11rem), 1.62): running prose; secondary prose uses Ink Secondary.
-- **Lede** (400, clamp(1.02rem, 1.4vw, 1.16rem), 1.55): the plate lead lines.
-- **Label** (Martian Mono, 500, 0.76rem, uppercase, 0.08em tracking): plate codes, figure captions, tags, dates, stamped button text.
+- **Display:** the frontmatter display role, semibold and tightly tracked. At widths up to (760px), the hero uses `clamp(2.8rem, 8vw, 4rem)` and a maximum line length of (14ch).
+- **Headline:** the frontmatter headline role, with upright violet emphasis rather than italic styling.
+- **Title:** the frontmatter title role. Service titles use (1.35rem), reducing to (1.2rem) on mobile; their explanatory line is smaller, regular and separately stacked.
+- **Body:** the frontmatter body role. Lead copy uses (1.15rem); hero copy has a (47ch) measure and line height (1.7).
+- **Supporting text:** contextual labels vary from (0.8rem) to (0.95rem); keep them subordinate to readable body copy.
+- **Action:** semibold sentence-case controls using the frontmatter action role. Numeric carousel counters use tabular figures.
 
 ### Named Rules
-**The Two-Voice Rule.** Bricolage Grotesque speaks; Martian Mono only codes, counts, numbers, and stamps. Mono never sets running prose, and the grotesque never sets a plate code.
-
-**The Micro Floor Rule.** No functional text falls below 0.76rem (~12px) — the `--micro` floor the build honors for captions, tags, and hints.
+**The Reading Plane Rule.** Keep headings and body copy stable; apply interactive tilt only to photographic surfaces and spatial movement only to carousel figures.
 
 ## Layout
 
-Every section is a plate capped at 1180px (`--plate-w`), centered, with a shared gutter of `clamp(1.25rem, 5vw, 5.5rem)` and vertical padding of `clamp(3.4rem, 8vw, 7rem)`. Plates are separated by a single hairline top border; the section header is a caption bar (`justify-content: space-between`) with the title left and a mono code block right, underlined with Rule Strong.
+The recurring content container is `min(1180px, calc(100% - 80px))`, centered. Section padding uses the fluid frontmatter section interval. Desktop compositions pair unequal columns rather than a uniform card grid; the process and contact details use three columns. Gaps adapt by composition, commonly (35–85px).
 
-Within plates, content is a small set of asymmetric two-column grids that collapse to one column. The cover uses 1.44fr / 1fr (prose vs figure); portrait 0.8fr / 1.2fr; procedures 0.72fr / 1.28fr; contact sheet 1.55fr / 1fr; records 1.15fr / 1fr. Three-up structures (the cover legend, the step sequence, the contact grid) are built as `1fr` cells separated by a 1px `Rule` background showing through 1px gaps.
+- Up to (1150px): navigation and paired-column gaps tighten.
+- Up to (1000px): navigation wraps beneath the brand/action row; the floating WhatsApp action becomes icon-only, retaining its accessible name. Service columns and icon tiles compact without losing descriptive lines.
+- Up to (760px): the container has (20px) side gutters and sections use (65px) vertical padding. Main grids and process steps become single-column, service introduction loses sticky positioning, and gallery copy precedes the photographs. The navigation becomes a toggleable two-column link list; it stays visible without JavaScript.
 
-**Responsive:** columns collapse to a single column at 1024px; the plate index wraps below the brand at 860px and the sequence becomes a stacked list with a left rule; the legend and contact grid stack at 560px; the floating action sheds its label and becomes a pill at 860px.
-
-### Named Rules
-**The Numbered-Lámina Rule.** Every section is a numbered plate with a mono caption code, and those numbers are the navigation. New sections extend the plate series (08, 09…), they do not become unnumbered blocks.
-
-**The Measure-Band Rule.** Running body prose occupies roughly 65–72ch. The hero lede (a 58ch column-bound measure) and the three-up steps (39ch) are declared column-bound deviations of their containers, not a global maximum — do not read them as a house line-length rule.
+The header is sticky; anchor offsets account for it. Section navigation follows scroll location. The floating action remains outside the normal content flow, with extra mobile footer space to avoid competing with closing content.
 
 ## Elevation & Depth
 
-Depth is printed, not lifted. Surfaces are flat at rest; there are no ambient card shadows. Layering is tonal (Plate Sunk / Cold Plate / Plate Raised) and drawn with hairlines, and true depth is reserved for two things: modeled material in the figure (inset wood shading and joint drop) and state feedback on interactive elements (a button lifting 1px on hover, the floating action casting a single downward shadow off the plate). The scene realizes depth structurally through CSS 3D — the manikin, arc, ghost numeral, and printed annotations each sit on their own z-plane and shift by different amounts, and the figure's own reflection returns from the plate below.
+The default is flat and tonal: pale planes, thin rules and rounded frames organize content. Small caption/message surfaces and the floating contact action receive soft violet-tinted shadows, never hard offset slabs.
 
 ### Shadow Vocabulary
-- **Action hover lift** (`box-shadow: 0 8px 18px -10px rgba(26, 47, 168, 0.75)`): the stamp button's cobalt glow on hover.
-- **Floating action** (`box-shadow: 0 12px 26px -14px rgba(20, 22, 27, 0.85)`): the only persistent shadow, under the WhatsApp action to lift it off the plate.
-- **Wood inset** (`box-shadow: inset -0.35em -0.4em 0.9em rgba(90, 58, 28, 0.28)`): the modeled side-shadow on each manikin limb.
-- **Joint drop** (`box-shadow: 0 0.2em 0.5em rgba(90, 58, 28, 0.3)`): the small contact shadow under each wooden joint.
+- **Photo message:** `0 16px 40px -24px rgba(57, 35, 94, 0.35)`.
+- **Portrait caption:** `0 14px 32px -22px rgba(57, 35, 94, 0.3)`.
+- **Floating contact:** `0 8px 28px -10px rgba(57,35,94,.4)`.
 
-### Named Rules
-**The Flat-Plate Rule.** Surfaces are flat at rest. Shadow appears only as a response to state (hover lift, focus, the floating action) or as modeled material inside the figure — never as ambient elevation on cards.
+Photographic backing planes may rotate gently; the hero window has an arched top. Fine-pointer tilt is bounded to (3deg) vertically and (4deg) horizontally. Carousel figures reach a (7deg) rotation, minimum scale (0.965) and opacity (0.85) between snaps. These are interactive treatments, not a requirement for every new surface.
 
-**The Plate-Reflection Rule.** The figure and its arc are returned by the plate below as a mirrored, clipped, blurred reflection (`.fig-mirror`, opacity 0.3, `scaleY(-1)` with a masked falloff). This is a signature mechanism of the world and is expected on the hero figure; it is never duplicated as a generic content treatment.
+The user-approved hero mascot is a transparent, generated matte-clay illustration of a person practicing coordination with blocks. It remains a small supporting layer beside the session photo, never a replacement for it. The web PNG is 480×480 and is displayed at 148–198px on desktop or 124px on mobile. Only fine-pointer hover moves it by 5px with a small rotation; no autonomous loop runs, and reduced motion removes the transform. It is decorative, ignores pointer events and is hidden from assistive technology. Its source prompt and generated provenance live beside the image.
 
 ## Shapes
 
-The form language is the technical plate: near-square corners and near-invisible radii. Interactive and surface corners are 2–4px (`.tag` and focus ring at 2px, the global `--radius` at 3px); plate frames, specimen boxes, entry forms, and contact cells are true rectangles with hairline borders. Measurement marks are the recurring geometry: 1px rules, ticks, dashed fan lines, leader lines with a small circular tick, and a 11px rotated-square step mark. Only the figure departs into organic form — wooden limbs and joints are pill and ellipse radii, and the brand logo is a 42px circle.
+Use full pill buttons, circular carousel arrows and identity markers, rounded fields and soft rectangular frames. The recurring radii are recorded in frontmatter; service tiles compact from (18px) to (14px) at the intermediate breakpoint.
 
-### Named Rules
-**The Two-to-Four Rule.** Corners are 2–4px. Interactive and flat surfaces never exceed it, never square off to 0 where the world uses 3px, and only the modeled figure, the logo, and the mobile floating action may go fully round.
+Photographic windows can have more expressive silhouettes than controls: the hero uses large arched top corners and (24px) bottom corners, while gallery and quote containers remain rounded rectangles. Icons are inline stroked SVG, not character glyphs or icon fonts.
 
 ## Components
 
-### Buttons
-- **Shape:** rectangular, `--radius` (3px), 1px border matching fill.
-- **Primary (`stamp`):** cobalt fill, white mono uppercase text at 0.76rem, 0.06em tracking, padding 0.75rem 1.1rem, with a 7px `currentColor` dot before the label. The label reads as a stamped plate instruction ("Escribir por WhatsApp", "Enviar testimonio").
-- **Hover / Focus:** fill and border shift to Cobalt Deep and the button lifts 1px with the cobalt glow; focus-visible draws a 2px cobalt outline at 3px offset.
-- **Ghost (`stamp--ghost`):** transparent fill, Atlas Ink text, Rule Strong border; hovers to a solid Ink fill with white text and no shadow.
+### Buttons and text links
+Clear, approachable sentence-case actions. Primary buttons have a minimum height of (54px); the compact header variant uses (46px). Hover darkens and lifts by (2px); active returns to baseline. Arrow SVGs shift slightly on hover. Text links are underlined, violet and at least (44px) high.
 
-### Chips (if used)
-- **Style:** the `.tag` — mono uppercase, Ink Secondary text, 1px Rule Strong border, 2px radius, transparent fill, 0.3rem 0.55rem padding.
-- **State:** static metadata only (service facets such as "Memoria", "Motricidad"); there is no selected/filter state in the build.
+All keyboard-focusable controls inherit a (3px) violet outline with (5px) offset. Reduced-motion preferences remove transitions and transforms.
+
+### Service details
+Native disclosure rows, separated by rules rather than boxed cards. Each summary contains a colored icon tile, a heading with its descriptive line **below** the title, and a CSS plus/minus indicator. The first service starts open; independent details can remain open together. Audience links open the matching service before navigating. On mobile the expanded body aligns with the full row, not an icon-offset column.
 
 ### Cards / Containers
-- **Corner Style:** 0px — plates are true rectangles.
-- **Background:** Plate Raised for raised content (specimen, sheet frame, entry, contact cell); Plate Sunk for recessed context (sheet aside, footer).
-- **Shadow Strategy:** none; see Elevation & Depth (Flat-Plate Rule).
-- **Border:** 1px Rule Strong on frames; 1px Rule for internal dividers.
-- **Internal Padding:** 1.1rem for specimen frames, 0.9rem for sheet frames, `clamp(1.3rem, 3vw, 2rem)` for entry and contact cells.
+Quote cards are white on lavender, softly rounded and shadow-free, with a generous reading area and an apricot initial marker. Their desktop padding is the frontmatter record value; on mobile it becomes (28px). The gallery combines an image frame and a lavender caption. Do not imply that separate crops are separate sessions.
 
 ### Inputs / Fields
-- **Style:** full-width, Cold Plate background, 1px Rule Strong border, 3px radius, 0.72rem 0.8rem padding; label is mono uppercase 0.76rem above the field; a mono hint sits below.
-- **Focus:** border shifts to Cobalt and background clears to white (`outline: none`, border-color change).
-- **Error:** the `.field.is-invalid` state sets the border to Vermellón and the background to Vermellón Wash; the message prints in-flow in a dark red mono line, never as floating chrome.
+Visible labels sit above white, bordered, rounded fields. Focus changes the border to violet in addition to the shared outline. Errors use an error-colored border and adjacent text; client validation sets `aria-invalid`, announces messages and focuses the first invalid field. Name and experience limits are (100) and (600) characters, with server-side validation retained. The textarea resizes vertically.
 
 ### Navigation
-- **Style:** the header is a sticky plate-index of numbered lámina links (`01 Quién soy` … `07 Contacto`), each pairing a mono `--micro` number with a 0.9rem/500 label, separated by a 2px transparent bottom border that turns cobalt on hover/focus; the number turns cobalt with it.
-- **Mobile:** at 860px the index wraps to its own full-width row under the brand with a hairline top border; at 560px the header CTA hides its text and keeps only its dot.
+Sticky white header, logo/wordmark, plain-language links and a compact action. Hover/current links turn violet; desktop current location adds a small dot. On mobile the dot disappears and link separators aid scanning. The menu exposes `aria-expanded`, closes on selection or Escape, and returns focus to its toggle after Escape.
 
-### Signature Components
-- **Plate caption bar (`plate__caption`):** the section header — title left (headline size), a right-aligned mono code block whose strong line is the lámina number and whose second line is a category ("Retrato · recorte 4:3"), closed by a Rule Strong underline. It is the identity of every section.
-- **Annotated scene (`fig-scene`):** the hero's CSS-3D assembly — wooden articulated manikin, cobalt range arc that draws on reveal, dashed range fan, ghost plate numeral, mono annotation leader lines, a floor shadow, and the plate reflection. Layers parallax independently on pointer move and flatten to static when reduced motion is requested.
-- **Scroll-snap carousel (`slider`):** a shared chassis — an overflow-clipped, scrollbar-hidden track of full-width slides (`slider__slide`) advanced by bordered ghost buttons, with keyboard (← → Home End) and native swipe. It carries two bearers: the **photographic registry** (Lámina 05) shows a raised plate per 3:2 crop (`sheet-frame__media`) with the caption inside the frame and tick dots, where detail slides re-view the same photograph at scale via `--zoom` / `--ox` / `--oy`; the **testimonios registry** (Lámina 06) shows one record card per slide (`record`) with a mono `nn / NN` counter instead of ticks. Controls collapse to nothing when only one slide is present.
+### Carousels
+Native horizontal scroll-snap tracks, one full-width slide at a time, without autoplay. Both support arrows, Home and End, pointer/touch scrolling, boundary-disabled buttons and resize alignment. The photo carousel has current-state dots; the testimonial carousel has a live, zero-padded counter. Single-slide controls hide. Reduced motion makes scrolling instant and removes spatial effects.
+
+### Floating contact
+Deep-violet pill with an inline SVG and text on wide screens. At (1000px) and below it becomes a compact icon-only control with the same accessible name and destination. Hover lifts it by (3px).
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** keep the ground on the cold plate (#eeeef0) and reach for the three tonal steps for layering; treat the measurement reticle as structure, not decoration.
-- **Do** number every section as a lámina with a mono caption code (Two-to-Four Rule corners, 2–4px).
-- **Do** let cobalt be the only action color; reserve vermellón (#e8451f) for the single active or invalid element.
-- **Do** author figures, arcs, ticks, and pictograms as CSS/SVG geometry with 1px hairlines, and keep body prose within ~65–72ch.
-- **Do** honor `prefers-reduced-motion` — reveal, arc draw-on, and pointer parallax all flatten and the reflection stays put.
+- **Do** use violet for actionable emphasis and apricot or mint for supporting material.
+- **Do** preserve readable, stationary copy while photographs and carousel figures supply subtle depth.
+- **Do** retain visible focus, labeled fields, native disclosure semantics and reduced-motion alternatives.
+- **Do** keep service descriptions below their headings and compact floating contact at the intermediate breakpoint.
 
 ### Don't:
-- **Don't** use warm cream or paper grounds, or reintroduce the pastel rounded-card wellness look the world rejects.
-- **Don't** add ambient card shadows or lift surfaces that are not responding to state (Flat-Plate Rule).
-- **Don't** use vermellón as a fill, background, or decoration — it marks only the live point.
-- **Don't** set running prose in Martian Mono, or drop any functional label below 0.76rem.
-- **Don't** exceed 4px on a flat interactive corner, and don't square those corners to 0.
+- **Don't** restore the archived Atlas palette, technical grid or instrument aesthetic as current system rules.
+- **Don't** present repeated photo crops as distinct sessions or database presence as independent testimonial verification.
+- **Don't** add invented testimonials, clinical credentials or outcome claims without user-supplied evidence.
+- **Don't** make essential navigation, content or actions depend on animation.
